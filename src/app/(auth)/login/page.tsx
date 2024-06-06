@@ -49,13 +49,12 @@ export default function LoginPage() {
 
   async function onSubmit(values: loginFormSchemaType) {
     const res = await loginWithCredentials(values)
-    console.log(res)
 
     if (res?.error) {
       toast({
         title: "登录失败",
         variant: "destructive",
-        description: "请检查邮箱和密码是否正确",
+        description: res?.error || "请检查邮箱和密码是否正确",
       })
     } else {
       toast({
@@ -119,7 +118,7 @@ export default function LoginPage() {
                     GitHub登录
                   </Button>
                 </div>
-                <Link href="/register">
+                <Link href={"/register"}>
                   <Button
                     size="lg"
                     variant="link"

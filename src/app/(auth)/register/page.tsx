@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import ColorfulCard from "@/components/colorful-card"
 
-import { register } from "./action"
+import { register, sendActiveEmail } from "./action"
 
 import "./index.css"
 
@@ -63,8 +63,10 @@ export default function RegisterPage() {
         variant: "destructive",
       })
     } else {
-      // 注册成功，跳到登录页面
-      router.push("/login")
+      console.log("zccg")
+      // 注册成功，跳到注册结果页
+      router.push("/register/result")
+      await sendActiveEmail({ email: values.email })
     }
     setLoading(false)
   }
@@ -134,7 +136,7 @@ export default function RegisterPage() {
                 </Button>
               </div>
               <div className="flex flex-col gap-3">
-                <Link href="/login">
+                <Link href={"/login"}>
                   <Button
                     disabled={loading}
                     size="lg"

@@ -3,6 +3,7 @@
 import { AuthError } from "next-auth"
 
 import { signIn } from "@/config/auth.config"
+import { primsa } from "@/lib/primsa"
 import { loginFormSchemaType } from "@/app/(auth)/login/page"
 
 export const loginWithGithub = async () => {
@@ -15,6 +16,24 @@ export const loginWithCredentials = async (
   credentials: loginFormSchemaType
 ) => {
   try {
+    const existUser = await primsa.user.findUnique({
+      where: {
+        email: credentials.email,
+      },
+    })
+    console.log(JSON.stringify(existUser), "existUser")
+    if (!existUser || !existUser.email) {
+      return {
+        error: "用户名不存在",
+      }
+    }
+
+    if (!existUser.emailVerified) {
+      return {
+        error: "用户未激活，请激活后登录",
+      }
+    }
+
     await signIn("credentials", {
       ...credentials,
       redirectTo: "/user",

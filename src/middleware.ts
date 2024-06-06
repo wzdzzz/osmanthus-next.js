@@ -7,7 +7,8 @@ const { auth } = NextAuth({
 export default auth((req) => {
   const isLoggedIn = !!req.auth?.user
   const pathname = new URL(req.url).pathname
-  const whiteList = ["/", "/list"]
+  console.log(pathname, "pth")
+  const whiteList = ["/", "/list", "/activate", "/register/result"]
   const loginList = ["/login", "/register"]
   // 如果未登录，且不在loginList和白名单内，则跳转到登录页
   if (
