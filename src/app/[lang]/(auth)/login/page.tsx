@@ -23,7 +23,7 @@ import { useToast } from "@/components/ui/use-toast"
 import {
   loginWithCredentials,
   loginWithGithub,
-} from "@/app/(auth)/login/action"
+} from "@/app/[lang]/(auth)/login/action"
 
 const loginFormSchema = z.object({
   email: z.string().email({

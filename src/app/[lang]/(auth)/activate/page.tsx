@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { activateUser } from "@/app/(auth)/activate/action"
+import { activateUser } from "@/app/[lang]/(auth)/activate/action"
 
 export default function Page() {
   const params = useSearchParams()

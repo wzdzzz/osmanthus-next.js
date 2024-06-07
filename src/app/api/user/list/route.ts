@@ -1,6 +1,6 @@
 export const GET = (request: Request) => {
   const token = request.headers.get("Authorization")?.split(" ")[1]
-  console.log(typeof token, "xxx")
+  console.log(token, "xxx")
   if (!token || token === "undefined") {
     return new Response("Unauthorized", {
       status: 401,

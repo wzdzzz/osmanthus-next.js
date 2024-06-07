@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid"
 
 import { sendEmail } from "@/lib/email"
 import { primsa } from "@/lib/primsa"
-import { RegisterFormSchemaType } from "@/app/(auth)/register/page"
+import { RegisterFormSchemaType } from "@/app/[lang]/(auth)/register/page"
 
 const token = uuid()
 export const register = async (data: RegisterFormSchemaType) => {

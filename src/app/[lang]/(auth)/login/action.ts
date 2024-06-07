@@ -4,7 +4,7 @@ import { AuthError } from "next-auth"
 
 import { signIn } from "@/config/auth.config"
 import { primsa } from "@/lib/primsa"
-import { loginFormSchemaType } from "@/app/(auth)/login/page"
+import { loginFormSchemaType } from "@/app/[lang]/(auth)/login/page"
 
 export const loginWithGithub = async () => {
   await signIn("github", {
