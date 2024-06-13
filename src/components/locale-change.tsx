@@ -1,9 +1,10 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/navigation"
+import { useTransition } from "react"
+import { usePathname, useRouter } from "next/navigation"
+import { locales } from "@/i18n"
 
-import { i18n, localeMap } from "@/config/i18n.config"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -12,15 +13,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export function LocaleChange({ url }: { url?: string }) {
+export function LocaleChange() {
   const router = useRouter()
+  const pathname = usePathname()
+  const [isPending, startTransition] = useTransition()
 
   function onClick(locale: string) {
-    const newPathname =
-      `${locale}${url}` ||
-      window.location.pathname.replace(/^\/[a-z]{2}/, `/${locale}`)
-
-    router.push(`/${newPathname}/`)
+    startTransition(() => {
+      router.push(`/${locale}/${pathname}/`)
+    })
   }
 
   return (
@@ -32,11 +33,10 @@ export function LocaleChange({ url }: { url?: string }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div>
-          {i18n.locales.map((locale) => {
+          {locales.map((locale) => {
             return (
-              // <Link href={redirectedPathName(locale)}>{locale}</Link>
               <DropdownMenuItem key={locale} onClick={() => onClick(locale)}>
-                <span>{localeMap[locale]}</span>
+                <span>{locale}</span>
               </DropdownMenuItem>
             )
           })}

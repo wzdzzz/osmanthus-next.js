@@ -4,11 +4,11 @@ import { AuthError } from "next-auth"
 
 import { signIn } from "@/config/auth.config"
 import { primsa } from "@/lib/primsa"
-import { loginFormSchemaType } from "@/app/[lang]/(auth)/login/page"
+import { loginFormSchemaType } from "@/app/[locale]/(auth)/login/page"
 
 export const loginWithGithub = async () => {
   await signIn("github", {
-    redirectTo: "/user",
+    redirectTo: `/user`,
   })
 }
 
@@ -21,7 +21,6 @@ export const loginWithCredentials = async (
         email: credentials.email,
       },
     })
-    console.log(JSON.stringify(existUser), "existUser")
     if (!existUser || !existUser.email) {
       return {
         error: "用户名不存在",
@@ -36,7 +35,7 @@ export const loginWithCredentials = async (
 
     await signIn("credentials", {
       ...credentials,
-      redirectTo: "/user",
+      redirectTo: `/user`,
     })
   } catch (error) {
     if (error instanceof AuthError) {

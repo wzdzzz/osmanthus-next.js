@@ -1,14 +1,13 @@
-// src/app/page.tsx
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div>
       <Link href={"/login"}>
         <Button>去登录</Button>
       </Link>
-    </main>
+    </div>
   )
 }

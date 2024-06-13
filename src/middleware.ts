@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
-import { match as matchLocale } from "@formatjs/intl-localematcher"
-import Negotiator from "negotiator"
 import NextAuth from "next-auth"
-
-import { i18n } from "@/config/i18n.config"
+import createMiddleware from "next-intl/middleware"
 
 const { auth } = NextAuth({
   providers: [],
 })
 
-const noRedirectRoute = ["/api(.*)", "/trpc(.*)", "/admin"]
 const publicRoute = [
   "/(\\w{2}/)?signin(.*)",
   "/(\\w{2}/)?terms(.*)",
@@ -17,94 +13,96 @@ const publicRoute = [
   "/(\\w{2}/)?docs(.*)",
   "/(\\w{2}/)?blog(.*)",
   "/(\\w{2}/)?pricing(.*)",
+  "/(\\w{2}/)?unauthorized(.*)",
+  "/(\\w{2}/)?pricing(.*)",
+  "/(\\w{2}/)?roadmap(.*)",
+  "/(\\w{2}/)?features(.*)",
+  "/(\\w{2}/)?contact(.*)",
+  "/(\\w{2}/)?about(.*)",
+  "/(\\w{2}/)?unauthorized(.*)",
   "^/\\w{2}$", // root with locale
 ]
-
-function isNoRedirect(request: NextRequest): boolean {
-  const pathname = request.nextUrl.pathname
-  return noRedirectRoute.some((route) => new RegExp(route).test(pathname))
-}
 
 function isPublicPage(request: NextRequest): boolean {
   const pathname = request.nextUrl.pathname
   return publicRoute.some((route) => new RegExp(route).test(pathname))
 }
 
-function getLocale(request: NextRequest): string | undefined {
-  // Negotiator expects plain object so we need to transform headers
-  const negotiatorHeaders: Record<string, string> = {}
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
-  const locales = Array.from(i18n.locales)
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-    locales
-  )
-  return matchLocale(languages, locales, i18n.defaultLocale)
+const locales = ["en", "zh"]
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale: "en",
+  localePrefix: "never",
+})
+
+const authPages = ["/login", "/register", "/activate"]
+
+const testPathnameRegex = (pages: string[], pathName: string): boolean => {
+  return RegExp(
+    `^(/(${locales.join("|")}))?(${pages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`,
+    "i"
+  ).test(pathName)
 }
 
-export default auth((req) => {
+const authMiddleware = auth((req) => {
   const pathname = req.nextUrl.pathname
 
-  const locale = getLocale(req)
-
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  )
-
-  // 不需要多语言的页面
-  if (!isNoRedirect(req) && pathnameIsMissingLocale) {
-    const locale = getLocale(req)
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        req.url
-      )
-    )
-  }
-
-  if (isPublicPage(req)) {
-    return
-  }
-
-  const isLoggedIn = !!req.auth?.user
-  const whiteList = ["/", "/list"]
-
-  const isAuthPage = /^\/[a-zA-Z]{2,}\/(login|register|activate)/.test(pathname)
-
-  const isAuthRoute = /^\/api\//.test(pathname)
-
-  // 登录后直接访问的页面
-  if (isAuthRoute && isLoggedIn) {
-    return NextResponse.next()
-  }
-
-  // 登录页面登录后直接进入用户中心
-  if (isAuthPage) {
-    if (isLoggedIn) {
-      return NextResponse.redirect(new URL(`/user`, req.url))
-    }
-    return
-  }
-
-  if (!isLoggedIn) {
-    if (whiteList.includes(pathname)) {
-      return NextResponse.redirect(new URL(`/${locale}/${pathname}`, req.url))
-    }
-    let from = req.nextUrl.pathname
-    if (req.nextUrl.search) {
-      from += req.nextUrl.search
-    }
-    return NextResponse.redirect(
-      new URL(`/${locale}/login?from=${encodeURIComponent(from)}`, req.url)
-    )
-  }
-
-  const isWebhooksRoute = /^\/api\/webhooks\//.test(req.nextUrl.pathname)
+  const isWebhooksRoute = /^\/api\/webhooks\//.test(pathname)
   if (isWebhooksRoute) {
     return NextResponse.next()
   }
+
+  if (isPublicPage(req)) {
+    return intlMiddleware(req)
+  }
+
+  const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname)
+  const isLoggedIn = !!req.auth?.user
+  // 不需要登录的页面
+  const whiteList = ["/", "/list"]
+
+  if (!isLoggedIn) {
+    // 不需要登录就可以访问的页面
+    if (whiteList.includes(pathname)) {
+      console.log("whiteList", pathname)
+      return NextResponse.redirect(new URL(`${pathname}`, req.url))
+    }
+    if (!isAuthPage) {
+      let from = req.nextUrl.pathname
+      if (req.nextUrl.search) {
+        from += req.nextUrl.search
+      }
+      return NextResponse.redirect(
+        new URL(`/login?from=${encodeURIComponent(from)}`, req.url)
+      )
+    }
+  }
+
+  // 已登录状态，强制跳转到user页面
+  if (isAuthPage && isLoggedIn) {
+    return NextResponse.redirect(new URL(`/user`, req.url))
+  }
+
+  return intlMiddleware(req)
 })
+
+const middleware = (req: NextRequest) => {
+  const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname)
+
+  if (isAuthPage) {
+    return (authMiddleware as any)(req)
+  }
+
+  if (isPublicPage(req)) {
+    return intlMiddleware(req)
+  } else {
+    return (authMiddleware as any)(req)
+  }
+}
 
 // 排除掉一些接口和静态资源
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 }
+
+export default middleware

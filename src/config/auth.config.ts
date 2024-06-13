@@ -5,7 +5,7 @@ import NextAuth from "next-auth"
 import Github from "next-auth/providers/github"
 
 import { primsa } from "@/lib/primsa"
-import { loginFormSchemaType } from "@/app/[lang]/(auth)/login/page"
+import { loginFormSchemaType } from "@/app/[locale]/(auth)/login/page"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
