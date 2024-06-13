@@ -1,5 +1,23 @@
 {
   "test": {
     "title": "测试"
+  },
+  "login": {
+    "title": "登录",
+    "loginFailed": "登录失败",
+    "loginSuccess": "登录成功",
+    "loginFailedMsg": "请检查邮箱和密码是否正确",
+    "email": "邮箱",
+    "password": "密码",
+    "submit": "登录",
+    "register": "注册",
+    "loginWithGithub": "Github 登录",
+    "registerAccount": "还没有账号？注册新用户",
+    "invalidEmail": "邮箱格式不正确",
+    "invalidPassword": "密码不能为空",
+    "registerFailed": "注册失败",
+    "registerSuccess": "注册成功",
+    "username": "用户名",
+    "backLogin": "已有账号？返回登录"
   }
 }

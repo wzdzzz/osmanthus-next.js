@@ -1,5 +1,23 @@
 {
   "test": {
     "title": "Test"
+  },
+  "login": {
+    "title": "login",
+    "loginFailed": "login failed",
+    "loginSuccess": "login success",
+    "loginFailedMsg": "login failed, please check your email and password",
+    "email": "email",
+    "password": "password",
+    "submit": "login",
+    "register": "sign in",
+    "loginWithGithub": "Github",
+    "registerAccount": "no account? sign up",
+    "invalidEmail": "email is required",
+    "invalidPassword": "password is required",
+    "registerFailed": "register failed",
+    "registerSuccess": "register success",
+    "username": "username",
+    "backLogin": "back to login"
   }
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -27,10 +28,10 @@ import {
 
 const loginFormSchema = z.object({
   email: z.string().email({
-    message: "无效的邮箱格式",
+    message: "邮箱格式不正确",
   }),
   password: z.string().min(1, {
-    message: "不能为空",
+    message: "密码不能为空",
   }),
 })
 
@@ -38,6 +39,7 @@ export type loginFormSchemaType = z.infer<typeof loginFormSchema>
 
 export default function LoginPage() {
   const { toast } = useToast()
+  const t = useTranslations("login")
 
   const form = useForm<loginFormSchemaType>({
     resolver: zodResolver(loginFormSchema),
@@ -52,20 +54,20 @@ export default function LoginPage() {
 
     if (res?.error) {
       toast({
-        title: "登录失败",
+        title: t("loginFailed"),
         variant: "destructive",
-        description: res?.error || "请检查邮箱和密码是否正确",
+        description: res?.error || t("loginFailedMsg"),
       })
     } else {
       toast({
-        title: "登录成功",
+        title: t("loginSuccess"),
         duration: 5000,
       })
     }
   }
 
   return (
-    <div className="flex justify-center py-[100px]">
+    <div className="flex justify-center pt-[100px]">
       <ColorfulCard>
         <Form {...form}>
           <div>
@@ -74,14 +76,16 @@ export default function LoginPage() {
               className="w-[420px] p-[20px]"
             >
               <div className="my-[20px] flex justify-center">
-                <h1 className="text-2xl font-bold text-[#6960EC]">登录</h1>
+                <h1 className="text-2xl font-bold text-[#6960EC]">
+                  {t("title")}
+                </h1>
               </div>
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>邮箱</FormLabel>
+                    <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -94,7 +98,7 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="mt-[20px]">
-                    <FormLabel>密码</FormLabel>
+                    <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -103,7 +107,7 @@ export default function LoginPage() {
               />
               <div className="mt-[20px] flex justify-between">
                 <Button size="lg" className="w-full" type="submit">
-                  登录
+                  {t("submit")}
                 </Button>
               </div>
               <div className="mt-2 flex flex-col gap-3">
@@ -115,17 +119,18 @@ export default function LoginPage() {
                     className="flex flex-1 justify-center gap-1 px-0"
                     onClick={() => loginWithGithub()}
                   >
-                    GitHub登录
+                    {t("loginWithGithub")}
                   </Button>
                 </div>
-                <Link href={"/register"}>
+
+                <Link href={"/register"} className="mt-[12px] flex">
                   <Button
                     size="lg"
                     variant="link"
-                    className="mt-[12px] w-full"
                     type="button"
+                    className="flex-1"
                   >
-                    还没有账号？注册新用户
+                    {t("registerAccount")}
                   </Button>
                 </Link>
               </div>

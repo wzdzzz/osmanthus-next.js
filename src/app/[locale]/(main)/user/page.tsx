@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server"
 import { auth, signOut } from "@/config/auth.config"
 import { Button } from "@/components/ui/button"
 import { LocaleChange } from "@/components/locale-change"
+import ThemeChange from "@/components/theme-change"
 
 type Props = {
   params: { locale: string }
@@ -16,9 +17,11 @@ export default async function Page({ params: { locale } }: Props) {
   return (
     <main className="flex flex-col items-center justify-between p-24">
       <div>
+        <ThemeChange />
         <LocaleChange />
         {t("title")}-{locale}
       </div>
+      <div></div>
       {session?.user ? (
         <div>
           <div className="whitespace-break w-[500px] break-words">
@@ -37,6 +40,9 @@ export default async function Page({ params: { locale } }: Props) {
           </form>
           <Link href={`/list`}>
             <Button>去List</Button>
+          </Link>
+          <Link href={`/count`}>
+            <Button>去Count</Button>
           </Link>
         </div>
       ) : (

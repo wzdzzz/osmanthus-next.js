@@ -25,6 +25,8 @@ import { register, sendActiveEmail } from "./action"
 
 import "./index.css"
 
+import { useTranslations } from "next-intl"
+
 const registerFormSchema = z.object({
   username: z.string().min(1, {
     message: "不能为空",
@@ -41,6 +43,7 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   const router = useRouter()
+  const t = useTranslations("login")
 
   const form = useForm<RegisterFormSchemaType>({
     resolver: zodResolver(registerFormSchema),
@@ -58,12 +61,11 @@ export default function RegisterPage() {
 
     if (result?.error) {
       toast({
-        title: "注册失败",
+        title: t("registerFailed"),
         description: result.error,
         variant: "destructive",
       })
     } else {
-      console.log("zccg")
       // 注册成功，跳到注册结果页
       router.push("/register/result")
       await sendActiveEmail({ email: values.email })
@@ -81,14 +83,16 @@ export default function RegisterPage() {
               className="w-[420px] p-[20px]"
             >
               <div className="my-[20px] flex justify-center">
-                <h1 className="text-2xl font-bold text-[#6960EC]">注册</h1>
+                <h1 className="text-2xl font-bold text-[#6960EC]">
+                  {t("register")}
+                </h1>
               </div>
               <FormField
                 control={form.control}
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>用户名</FormLabel>
+                    <FormLabel>{t("username")}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -101,7 +105,7 @@ export default function RegisterPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="mt-[20px]">
-                    <FormLabel>邮箱</FormLabel>
+                    <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -114,7 +118,7 @@ export default function RegisterPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="mt-[20px]">
-                    <FormLabel>密码</FormLabel>
+                    <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -132,22 +136,20 @@ export default function RegisterPage() {
                   {loading && (
                     <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                   )}
-                  注册
+                  {t("register")}
                 </Button>
               </div>
-              <div className="flex flex-col gap-3">
-                <Link href={"/login"}>
-                  <Button
-                    disabled={loading}
-                    size="lg"
-                    variant="link"
-                    className="mt-[12px] w-full"
-                    type="button"
-                  >
-                    已有账号？返回登录
-                  </Button>
-                </Link>
-              </div>
+              <Link href={"/login"} className="mt-[12px] flex">
+                <Button
+                  disabled={loading}
+                  size="lg"
+                  variant="link"
+                  className="flex-1"
+                  type="button"
+                >
+                  {t("backLogin")}
+                </Button>
+              </Link>
             </form>
           </div>
         </Form>

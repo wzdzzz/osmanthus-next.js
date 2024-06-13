@@ -3,7 +3,8 @@
 import * as React from "react"
 import { useTransition } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import { locales } from "@/i18n"
+import { locales, localesMap } from "@/i18n"
+import { useLocale } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -16,6 +17,8 @@ import {
 export function LocaleChange() {
   const router = useRouter()
   const pathname = usePathname()
+  const locale = useLocale()
+
   const [isPending, startTransition] = useTransition()
 
   function onClick(locale: string) {
@@ -27,16 +30,16 @@ export function LocaleChange() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="h-8 w-8 bg-white">
-          <span className="sr-only text-white">切换</span>
+        <Button className="h-8 w-8" variant="link">
+          {localesMap[locale]}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div>
-          {locales.map((locale) => {
+          {locales.map((key) => {
             return (
-              <DropdownMenuItem key={locale} onClick={() => onClick(locale)}>
-                <span>{locale}</span>
+              <DropdownMenuItem key={key} onClick={() => onClick(key)}>
+                <span>{localesMap[key]}</span>
               </DropdownMenuItem>
             )
           })}

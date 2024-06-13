@@ -12,3 +12,8 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`./config/dictionaries/${locale}.json`)).default,
   }
 })
+
+export const localesMap = {
+  en: "English",
+  zh: "中文",
+}
