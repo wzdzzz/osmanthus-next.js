@@ -81,7 +81,7 @@ export default function LoginPage() {
               className="w-[90vw] min-w-[300px] max-w-[420px] p-5"
             >
               <div className="my-5 flex justify-center">
-                <h1 className="text-2xl font-bold text-[#6960EC]">
+                <h1 className="text-2xl font-bold text-primary">
                   {t("title")}
                 </h1>
               </div>

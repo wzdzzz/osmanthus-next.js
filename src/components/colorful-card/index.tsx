@@ -9,10 +9,10 @@ export default function ColorfulCard({
 }) {
   return (
     <div className="colorful">
-      <div className="box bg-[#17171a]">
-        <div className="box-mask bg-[#28292d]" />
+      <div className="box">
+        <div className="box-mask" />
       </div>
-      <div className="content bg-[#28292d]">{children}</div>
+      <div className="content bg-card">{children}</div>
     </div>
   )
 }

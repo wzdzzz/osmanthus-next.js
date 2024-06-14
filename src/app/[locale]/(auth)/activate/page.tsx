@@ -68,7 +68,7 @@ export default function Page() {
 
   if (!error && !success) {
     return (
-      <div className="mt-[20px] px-[100px]">
+      <div className="mt-5 px-4 md:px-20">
         <Alert>
           <AlertTitle className="flex items-center gap-2">
             {t("activateMsg")}
@@ -80,7 +80,7 @@ export default function Page() {
 
   if (success) {
     return (
-      <div className="mt-5 px-20">
+      <div className="mt-5 px-4 md:px-20">
         <Alert>
           <AlertTitle>🎉🎉🎉{t("activateSuccess")}</AlertTitle>
           <AlertDescription>
@@ -95,7 +95,7 @@ export default function Page() {
     )
   }
   return (
-    <div className="mt=[20px] px-[100px]">
+    <div className="mt-5 px-4 md:px-20">
       <Alert>
         <AlertDescription className="flex items-center gap-2">
           {error}

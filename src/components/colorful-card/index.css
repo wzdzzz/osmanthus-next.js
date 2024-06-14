@@ -20,7 +20,7 @@
   bottom: 50%;
   right: 50%;
   transform-origin: bottom right;
-  background: linear-gradient(0deg, transparent, #6960ec, #6960ec);
+  background: linear-gradient(0deg, transparent, rgba(var(--primary)), rgba(var(--primary)));
   animation: animate 6s linear infinite;
 }
 
@@ -31,7 +31,7 @@
   left: -50%;
   bottom: 50%;
   right: 50%;
-  background: linear-gradient(0deg, transparent, #6960ec, #6960ec);
+  background: linear-gradient(0deg, transparent, rgba(var(--primary)), rgba(var(--primary)));
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
   animation-delay: -3s;
