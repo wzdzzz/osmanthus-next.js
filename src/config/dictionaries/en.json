@@ -1,23 +1,40 @@
 {
-  "test": {
-    "title": "Test"
+  "home": {
+    "hello": "Hello,",
+    "description": "This is Home Page."
   },
   "login": {
     "title": "login",
-    "loginFailed": "login failed",
-    "loginSuccess": "login success",
-    "loginFailedMsg": "login failed, please check your email and password",
+    "loginFailed": "Login failed",
+    "loginSuccess": "Login success",
+    "loginFailedMsg": "Login failed, Please check your email and password",
     "email": "email",
     "password": "password",
     "submit": "login",
     "register": "sign in",
     "loginWithGithub": "Github",
-    "registerAccount": "no account? sign up",
+    "registerAccount": "No account? Sign up",
     "invalidEmail": "email is required",
     "invalidPassword": "password is required",
-    "registerFailed": "register failed",
-    "registerSuccess": "register success",
+    "registerFailed": "Register failed",
+    "registerSuccess": "Register success",
+    "registerActivateEmail": "Your verification email has been sent, please go to Verify",
+    "registerActivate": "Verified? Go back to Login",
     "username": "username",
-    "backLogin": "back to login"
+    "backLogin": "Back to login"
+  },
+  "activate": {
+    "errorMsg": "error",
+    "activateMsg": "Activating...",
+    "activateSuccess": "Activate success",
+    "activateLogin": "Please Login",
+    "activateLinkOverdue": "Activate link overdue",
+    "activateEmailSend": "Resend the activation email !",
+    "activateEmailSendMsg": "Activation email has been sent to your email, please check your email",
+    "activateEmailTitle": "Activate your account",
+    "activateEmailContent1": "Thank you for using WebNextJS",
+    "activateEmailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
+    "activateEmailButton": "Click here to activate your account",
+    "activateEmailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
   }
 }

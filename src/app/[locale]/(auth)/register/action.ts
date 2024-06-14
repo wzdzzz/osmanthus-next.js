@@ -10,7 +10,6 @@ import { sendEmail } from "@/lib/email"
 import { primsa } from "@/lib/primsa"
 import { RegisterFormSchemaType } from "@/app/[locale]/(auth)/register/page"
 
-const token = uuid()
 export const register = async (data: RegisterFormSchemaType) => {
   const existUser = await primsa.user.findFirst({
     where: {
@@ -36,6 +35,8 @@ export const register = async (data: RegisterFormSchemaType) => {
 }
 
 export const sendActiveEmail = async (data: { email: string }) => {
+  const token = uuid()
+
   await primsa.verificationToken.create({
     data: {
       identifier: data.email,
@@ -46,7 +47,7 @@ export const sendActiveEmail = async (data: { email: string }) => {
 
   const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/activate?token=${token}`
 
-  const emailHtml = render(Email({ baseUrl }))
+  const emailHtml = render(await Email({ baseUrl }))
 
   await sendEmail({
     to: data.email,

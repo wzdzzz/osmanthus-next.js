@@ -1,15 +1,19 @@
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function Page() {
+  const t = useTranslations("login")
   return (
-    <div className="mt-[20px] px-[100px]">
+    <div className="mt-5 px-20">
       <Alert>
-        <AlertTitle className="item-center flex">🎉🎉🎉注册成功</AlertTitle>
+        <AlertTitle className="item-center flex">
+          🎉🎉🎉{t("registerSuccess")}
+        </AlertTitle>
         <AlertDescription>
-          您的验证邮件已发送，请前往验证
-          <Link href="/login">已验证？返回登录</Link>
+          {t("registerActivateEmail")}
+          <Link href={"/login"}>{t("registerActivate")}</Link>
         </AlertDescription>
       </Alert>
     </div>

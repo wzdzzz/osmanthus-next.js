@@ -11,12 +11,15 @@ import {
   Section,
   Text,
 } from "@react-email/components"
+import { getTranslations } from "next-intl/server"
 
 interface EmailProps {
   baseUrl?: string
 }
 
-export default function Email({ baseUrl }: EmailProps) {
+export default async function Email({ baseUrl }: EmailProps) {
+  const t = await getTranslations("activate")
+
   return (
     <Html>
       <Head />
@@ -26,22 +29,20 @@ export default function Email({ baseUrl }: EmailProps) {
           <Section style={coverSection}>
             <Section style={imageSection}>Web NextJS</Section>
             <Section style={upperSection}>
-              <Heading style={h1}>激活你的账号</Heading>
+              <Heading style={h1}>{t("activateEmailTitle")}</Heading>
               <Text style={mainText}>
-                感谢您启动 WebNextJS
-                创建流程。我们想确认真的是你。请点击下方的按钮激活。如果您不想激活帐户，可以忽略此消息。
+                {t("activateEmailContent1")}
+                {t("activateEmailContent2")}
               </Text>
               <Section style={verificationSection}>
                 <Link style={link} href={baseUrl}>
-                  👉 点击这里激活账号 👈
+                  👉 {t("activateEmailButton")} 👈
                 </Link>
               </Section>
             </Section>
             <Hr />
             <Section style={lowerSection}>
-              <Text style={cautionText}>
-                本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。
-              </Text>
+              <Text style={cautionText}>{t("activateEmailFooter")}</Text>
             </Section>
           </Section>
         </Container>
@@ -87,6 +88,7 @@ const text = {
 }
 
 const imageSection = {
+  color: "#fff",
   backgroundColor: "#252f3d",
   display: "flex",
   padding: "20px 0",

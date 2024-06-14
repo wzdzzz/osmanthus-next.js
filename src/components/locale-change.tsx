@@ -18,12 +18,15 @@ export function LocaleChange() {
   const router = useRouter()
   const pathname = usePathname()
   const locale = useLocale()
-
-  const [isPending, startTransition] = useTransition()
-
+  const [, startTransition] = useTransition()
+  const url = new URL(window.location.href)
+  const query = url.search
   function onClick(locale: string) {
     startTransition(() => {
-      router.push(`/${locale}/${pathname}/`)
+      const newPathName = query
+        ? `/${locale}/${pathname}${query}`
+        : `/${locale}/${pathname}`
+      router.push(newPathName)
     })
   }
 

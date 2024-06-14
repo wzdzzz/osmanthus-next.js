@@ -3,12 +3,19 @@
 import { SetStateAction, useCallback, useEffect, useState } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { activateUser } from "@/app/[locale]/(auth)/activate/action"
+import { useToast } from "@/components/ui/use-toast"
+import {
+  activateUser,
+  resendActiveEmail,
+} from "@/app/[locale]/(auth)/activate/action"
 
 export default function Page() {
+  const t = useTranslations("activate")
+  const { toast } = useToast()
   const params = useSearchParams()
   const token = params.get("token")
 
@@ -20,7 +27,7 @@ export default function Page() {
     setSuccess("")
 
     if (!token) {
-      setError("出错了")
+      setError(t("errorMsg"))
       return
     }
 
@@ -32,12 +39,29 @@ export default function Page() {
         if (result?.success) {
           setSuccess(result?.success)
         } else {
-          setError(result.error || "出错了")
+          setError(result.error || t("errorMsg"))
         }
       }
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
 
+  const resendEmail = async () => {
+    const res = await resendActiveEmail(token)
+    if (res?.error) {
+      toast({
+        title: t("errorMsg"),
+        variant: "destructive",
+        description: res?.error || t("loginFailedMsg"),
+      })
+    } else {
+      toast({
+        title: t("activateEmailSend"),
+        description: t("activateEmailSendMsg"),
+        duration: 5000,
+      })
+    }
+  }
   useEffect(() => {
     activate()
   }, [activate])
@@ -46,7 +70,9 @@ export default function Page() {
     return (
       <div className="mt-[20px] px-[100px]">
         <Alert>
-          <AlertTitle className="flex items-center gap-2">激活中...</AlertTitle>
+          <AlertTitle className="flex items-center gap-2">
+            {t("activateMsg")}
+          </AlertTitle>
         </Alert>
       </div>
     )
@@ -54,13 +80,13 @@ export default function Page() {
 
   if (success) {
     return (
-      <div className="mt-[20px] px-[100px]">
+      <div className="mt-5 px-20">
         <Alert>
-          <AlertTitle>🎉🎉🎉{success}</AlertTitle>
+          <AlertTitle>🎉🎉🎉{t("activateSuccess")}</AlertTitle>
           <AlertDescription>
             <Link href={"/login"}>
               <Button color="green" variant="link">
-                返回登录
+                {t("activateLogin")}
               </Button>
             </Link>
           </AlertDescription>
@@ -73,6 +99,9 @@ export default function Page() {
       <Alert>
         <AlertDescription className="flex items-center gap-2">
           {error}
+          <Button color="green" variant="link" onClick={resendEmail}>
+            {t("activateEmailSend")}
+          </Button>
         </AlertDescription>
       </Alert>
     </div>

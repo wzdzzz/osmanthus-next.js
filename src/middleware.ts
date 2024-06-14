@@ -35,7 +35,7 @@ const intlMiddleware = createMiddleware({
   localePrefix: "never",
 })
 
-const authPages = ["/login", "/register", "/activate"]
+const authPages = ["/login", "/register", "/register/result", "/activate"]
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(

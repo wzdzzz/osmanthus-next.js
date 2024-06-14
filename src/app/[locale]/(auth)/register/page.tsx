@@ -74,7 +74,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex justify-center py-[100px]">
+    <div className="flex justify-center pt-[100px]">
       <ColorfulCard>
         <Form {...form}>
           <div>

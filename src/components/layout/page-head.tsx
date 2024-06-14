@@ -65,6 +65,11 @@ export default async function PageHead({ justLogo }: { justLogo?: boolean }) {
           </NavbarContent>
         </>
       )}
+      {justLogo && (
+        <NavbarContent justify="end">
+          <LocaleChange />
+        </NavbarContent>
+      )}
     </Navbar>
   )
 }

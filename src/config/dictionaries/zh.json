@@ -1,6 +1,7 @@
 {
-  "test": {
-    "title": "测试"
+  "home": {
+    "hello": "你好，",
+    "description": "这里是首页。"
   },
   "login": {
     "title": "登录",
@@ -17,7 +18,21 @@
     "invalidPassword": "密码不能为空",
     "registerFailed": "注册失败",
     "registerSuccess": "注册成功",
+    "registerActivateEmail": "您的验证邮件已发送，请前往验证",
+    "registerActivate": "已验证？返回登录",
     "username": "用户名",
     "backLogin": "已有账号？返回登录"
+  },
+  "activate": {
+    "errorMsg": "出错了",
+    "activateMsg": "激活中...",
+    "activateSuccess": "激活成功",
+    "activateLogin": "返回登录",
+    "activateEmailSend": "重新发送激活邮件 ！",
+    "activateEmailSendMsg": "激活邮件已发送，请查收",
+    "activateEmailContent1": "感谢您使用 WebNextJS",
+    "activateEmailContent2": "创建流程。我们想确认真的是你。请点击下方的按钮激活。如果您不想激活帐户，可以忽略此消息。",
+    "activateEmailButton": "点击这里激活账号",
+    "activateEmailFooter": " 本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
   }
 }
