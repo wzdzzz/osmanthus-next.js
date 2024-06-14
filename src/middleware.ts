@@ -62,12 +62,7 @@ const authMiddleware = auth((req) => {
   const whiteList = ["/", "/list"]
 
   if (!isLoggedIn) {
-    // 不需要登录就可以访问的页面
-    if (whiteList.includes(pathname)) {
-      console.log("whiteList", pathname)
-      return NextResponse.redirect(new URL(`${pathname}`, req.url))
-    }
-    if (!isAuthPage) {
+    if (!isAuthPage && !whiteList.includes(pathname)) {
       let from = req.nextUrl.pathname
       if (req.nextUrl.search) {
         from += req.nextUrl.search

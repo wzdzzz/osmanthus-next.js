@@ -1,25 +1,16 @@
 import Link from "next/link"
-import { getTranslations } from "next-intl/server"
 
 import { auth, signOut } from "@/config/auth.config"
 import { Button } from "@/components/ui/button"
-import { LocaleChange } from "@/components/locale-change"
 import ThemeChange from "@/components/theme-change"
 
-type Props = {
-  params: { locale: string }
-}
-
-export default async function Page({ params: { locale } }: Props) {
+export default async function Page() {
   const session = await auth()
-  const t = await getTranslations("test")
 
   return (
     <main className="flex flex-col items-center justify-between p-24">
       <div>
         <ThemeChange />
-        <LocaleChange />
-        {t("title")}-{locale}
       </div>
       <div></div>
       {session?.user ? (

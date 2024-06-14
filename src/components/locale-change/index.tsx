@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useTransition } from "react"
+import { useEffect, useTransition } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { locales, localesMap } from "@/i18n"
 import { useLocale } from "next-intl"
@@ -19,8 +19,12 @@ export function LocaleChange() {
   const pathname = usePathname()
   const locale = useLocale()
   const [, startTransition] = useTransition()
-  const url = new URL(window.location.href)
-  const query = url.search
+  const [query, setQuery] = React.useState<string | null>(null)
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    setQuery(url.search)
+  }, [])
+
   function onClick(locale: string) {
     startTransition(() => {
       const newPathName = query

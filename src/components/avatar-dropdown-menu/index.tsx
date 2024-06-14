@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import { Avatar } from "@nextui-org/react"
 
 import { auth, signOut } from "@/config/auth.config"
@@ -21,8 +22,8 @@ const AvatarDropdownMenu = async () => {
 
       <DropdownMenuPortal>
         <DropdownMenuContent>
-          <DropdownMenuItem className="">
-            {session?.user?.name || "user"}
+          <DropdownMenuItem className="flex justify-center">
+            <Link href={"/user"}>{session?.user?.name || "user"}</Link>
           </DropdownMenuItem>
           <div className="flex cursor-pointer justify-center">
             <form
