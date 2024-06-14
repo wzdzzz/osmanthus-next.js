@@ -12,6 +12,18 @@ export const loginWithGithub = async () => {
   })
 }
 
+export const loginWithGoogle = async () => {
+  await signIn("google", {
+    redirectTo: `/user`,
+  })
+}
+
+export const loginWithGitee = async () => {
+  await signIn("gitee", {
+    redirectTo: `/user`,
+  })
+}
+
 export const loginWithCredentials = async (
   credentials: loginFormSchemaType
 ) => {

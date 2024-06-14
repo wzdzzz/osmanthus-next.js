@@ -21,9 +21,14 @@ import ColorfulCard from "@/components/colorful-card"
 import "./index.css"
 
 import { useToast } from "@/components/ui/use-toast"
+import { GiteeIcon } from "@/components/icons/gitee-icon"
+import { GithubIcon } from "@/components/icons/github-icon"
+import { GoogleIcon } from "@/components/icons/google-icon"
 import {
   loginWithCredentials,
+  loginWithGitee,
   loginWithGithub,
+  loginWithGoogle,
 } from "@/app/[locale]/(auth)/login/action"
 
 const loginFormSchema = z.object({
@@ -67,15 +72,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex justify-center pt-[100px]">
+    <div className="flex justify-center pt-10 md:pt-20">
       <ColorfulCard>
         <Form {...form}>
           <div>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-[420px] p-[20px]"
+              className="w-[90vw] min-w-[300px] max-w-[420px] p-5"
             >
-              <div className="my-[20px] flex justify-center">
+              <div className="my-5 flex justify-center">
                 <h1 className="text-2xl font-bold text-[#6960EC]">
                   {t("title")}
                 </h1>
@@ -97,7 +102,7 @@ export default function LoginPage() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="mt-[20px]">
+                  <FormItem className="mt-5">
                     <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
@@ -105,25 +110,34 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <div className="mt-[20px] flex justify-between">
+              <div className="mt-5 flex justify-between">
                 <Button size="lg" className="w-full" type="submit">
                   {t("submit")}
                 </Button>
               </div>
-              <div className="mt-2 flex flex-col gap-3">
-                <div className="flex gap-2">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    type="button"
-                    className="flex flex-1 justify-center gap-1 px-0"
+              <div className="mt-4 flex flex-col gap-3">
+                <div className="flex items-center justify-center gap-3">
+                  <div
+                    className="cursor-pointer rounded-full"
                     onClick={() => loginWithGithub()}
                   >
-                    {t("loginWithGithub")}
-                  </Button>
+                    <GithubIcon />
+                  </div>
+                  <div
+                    className="cursor-pointer rounded-full"
+                    onClick={() => loginWithGoogle()}
+                  >
+                    <GoogleIcon />
+                  </div>
+                  <div
+                    className="cursor-pointer rounded-full"
+                    onClick={() => loginWithGitee()}
+                  >
+                    <GiteeIcon />
+                  </div>
                 </div>
 
-                <Link href={"/register"} className="mt-[12px] flex">
+                <Link href={"/register"} className="mt-3 flex">
                   <Button
                     size="lg"
                     variant="link"

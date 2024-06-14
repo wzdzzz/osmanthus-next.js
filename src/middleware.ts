@@ -5,6 +5,7 @@ import createMiddleware from "next-intl/middleware"
 const { auth } = NextAuth({
   providers: [],
 })
+const noRedirectRoute = ["/api(.*)"]
 
 const publicRoute = [
   "/(\\w{2}/)?signin(.*)",
@@ -46,6 +47,14 @@ const testPathnameRegex = (pages: string[], pathName: string): boolean => {
 
 const authMiddleware = auth((req) => {
   const pathname = req.nextUrl.pathname
+
+  const isNoRedirectRoute = noRedirectRoute.some((route) =>
+    new RegExp(route).test(pathname)
+  )
+  console.log(isNoRedirectRoute, pathname, "isNoRedirectRoute")
+  if (isNoRedirectRoute) {
+    return NextResponse.next()
+  }
 
   const isWebhooksRoute = /^\/api\/webhooks\//.test(pathname)
   if (isWebhooksRoute) {

@@ -74,15 +74,15 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex justify-center pt-[100px]">
+    <div className="flex justify-center pt-10 md:pt-20">
       <ColorfulCard>
         <Form {...form}>
           <div>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-[420px] p-[20px]"
+              className="w-[90vw] min-w-[300px] max-w-[420px] p-5"
             >
-              <div className="my-[20px] flex justify-center">
+              <div className="my-5 flex justify-center">
                 <h1 className="text-2xl font-bold text-[#6960EC]">
                   {t("register")}
                 </h1>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="mt-[20px]">
+                  <FormItem className="mt-5">
                     <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
                       <Input {...field} />
@@ -117,7 +117,7 @@ export default function RegisterPage() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="mt-[20px]">
+                  <FormItem className="mt-5">
                     <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
