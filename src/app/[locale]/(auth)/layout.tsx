@@ -1,4 +1,4 @@
-import PageHead from "@/components/layout/page-head"
+import SiteHeader from "@/components/site-header"
 
 export default async function AuthLayout({
   children,
@@ -7,7 +7,7 @@ export default async function AuthLayout({
 }) {
   return (
     <>
-      <PageHead justLogo={true} />
+      <SiteHeader isAuthPage={true} />
       {children}
     </>
   )

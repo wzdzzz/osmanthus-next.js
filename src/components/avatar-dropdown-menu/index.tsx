@@ -17,7 +17,7 @@ const AvatarDropdownMenu = async () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar src={session?.user?.image || ""}></Avatar>
+        <Avatar src={session?.user?.image || ""} size="sm"></Avatar>
       </DropdownMenuTrigger>
 
       <DropdownMenuPortal>

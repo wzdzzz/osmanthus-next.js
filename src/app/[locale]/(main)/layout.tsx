@@ -1,4 +1,4 @@
-import PageHead from "@/components/layout/page-head"
+import SiteHeader from "@/components/site-header"
 
 export default async function MainLayout({
   children,
@@ -7,7 +7,7 @@ export default async function MainLayout({
 }) {
   return (
     <>
-      <PageHead />
+      <SiteHeader />
       {children}
     </>
   )

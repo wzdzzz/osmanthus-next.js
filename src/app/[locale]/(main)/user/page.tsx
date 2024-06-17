@@ -2,16 +2,12 @@ import Link from "next/link"
 
 import { auth, signOut } from "@/config/auth.config"
 import { Button } from "@/components/ui/button"
-import ThemeChange from "@/components/theme-change"
 
 export default async function Page() {
   const session = await auth()
 
   return (
     <main className="flex flex-col items-center justify-between p-24">
-      <div>
-        <ThemeChange />
-      </div>
       <div></div>
       {session?.user ? (
         <div>
