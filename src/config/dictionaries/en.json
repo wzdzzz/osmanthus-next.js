@@ -3,6 +3,13 @@
     "hello": "Hello,",
     "description": "This is Home Page."
   },
+  "userMenu": {
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "setting": "Setting",
+    "logout": "Logout"
+  },
   "login": {
     "title": "login",
     "loginFailed": "Login failed",

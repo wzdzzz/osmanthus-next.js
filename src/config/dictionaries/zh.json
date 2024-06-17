@@ -3,6 +3,13 @@
     "hello": "你好，",
     "description": "这里是首页。"
   },
+  "userMenu": {
+    "login": "登录",
+    "register": "注册",
+    "profile": "个人信息",
+    "setting": "个人设置",
+    "logout": "退出"
+  },
   "login": {
     "title": "登录",
     "loginFailed": "登录失败",

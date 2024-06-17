@@ -82,9 +82,9 @@ const authMiddleware = auth((req) => {
     }
   }
 
-  // 已登录状态，强制跳转到user页面
+  // 已登录状态，强制跳转到首页
   if (isAuthPage && isLoggedIn) {
-    return NextResponse.redirect(new URL(`/user`, req.url))
+    return NextResponse.redirect(new URL(`/`, req.url))
   }
 
   return intlMiddleware(req)

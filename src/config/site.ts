@@ -12,8 +12,8 @@ export const siteConfig = {
       text: "Docs",
     },
     {
-      href: "/docs/components",
-      text: "Components",
+      href: "/dashboard",
+      text: "Dashboard",
     },
     {
       href: "/themes",

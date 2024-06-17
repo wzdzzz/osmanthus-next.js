@@ -8,19 +8,19 @@ import { loginFormSchemaType } from "@/app/[locale]/(auth)/login/page"
 
 export const loginWithGithub = async () => {
   await signIn("github", {
-    redirectTo: `/user`,
+    redirectTo: `/`,
   })
 }
 
 export const loginWithGoogle = async () => {
   await signIn("google", {
-    redirectTo: `/user`,
+    redirectTo: `/`,
   })
 }
 
 export const loginWithGitee = async () => {
   await signIn("gitee", {
-    redirectTo: `/user`,
+    redirectTo: `/`,
   })
 }
 
@@ -47,7 +47,7 @@ export const loginWithCredentials = async (
 
     await signIn("credentials", {
       ...credentials,
-      redirectTo: `/user`,
+      redirectTo: `/`,
     })
   } catch (error) {
     if (error instanceof AuthError) {
