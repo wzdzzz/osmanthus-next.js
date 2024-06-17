@@ -38,7 +38,7 @@ export default async function SiteHeader({
 
           {!isAuthPage && (
             <>
-              {session ? (
+              {session?.user ? (
                 <AvatarDropdownMenu />
               ) : (
                 <>
