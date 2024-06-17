@@ -8,7 +8,7 @@ import "./globals.css"
 import { NextUIProvider } from "@nextui-org/react"
 
 import { siteConfig } from "@/config/site"
-import { ThemeProvider } from "@/components/providers/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 

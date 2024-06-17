@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-const AvatarDropdownMenu = async () => {
+export default async function AvatarDropdownMenu() {
   const session = await auth()
   return (
     <DropdownMenu>
@@ -41,5 +41,3 @@ const AvatarDropdownMenu = async () => {
     </DropdownMenu>
   )
 }
-
-export default AvatarDropdownMenu
