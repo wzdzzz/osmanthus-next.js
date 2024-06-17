@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types"
 
 import { cn } from "@/lib/utils"
+import { Pre } from "@/components/pre"
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -143,19 +144,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
-      return (
-        <div>
-          <pre
-            className={cn(
-              "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-              className
-            )}
-            {...props}
-          />
-        </div>
-      )
-    },
+    pre: Pre,
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <code
         className={cn(
