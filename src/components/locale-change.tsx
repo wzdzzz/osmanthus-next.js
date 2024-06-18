@@ -18,7 +18,7 @@ export function LocaleChange() {
   const router = useRouter()
   const pathname = usePathname()
   const locale = useLocale()
-  console.log(locale, "locale")
+
   const [, startTransition] = useTransition()
   const [query, setQuery] = React.useState<string | null>(null)
   useEffect(() => {
@@ -32,6 +32,7 @@ export function LocaleChange() {
         ? `/${locale}/${pathname}${query}`
         : `/${locale}/${pathname}`
       router.push(newPathName)
+      router.refresh()
     })
   }
 

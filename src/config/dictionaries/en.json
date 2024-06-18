@@ -35,7 +35,29 @@
     "passwordPlaceholder": "Please enter your password",
     "usernamePlaceholder": "Please enter your username",
     "emailExist": "Email already exists",
+    "activateEmailSubject": "Activate your account",
+    "registerSuccessMsg": "Register success, please check your email to activate your account",
+    "hasActivate": "Account has been activated, ",
+    "toLogin": "please login"
+  },
+  "activate": {
+    "errorMsg": "error, please contact administrator",
+    "activateMsg": "Activating, please wait...",
+    "activateSuccess": "Activate success",
+    "activateLogin": "Please Login",
+    "activateLinkOverdue": "Activate link overdue",
+    "activateEmailSend": "Resend the activation email !",
+    "activateEmailSendSuccess": "Activation email sent successfully",
+    "activateEmailSendFailed": "Failed to send activation email",
+    "activateLinkExpires": "The activation link has expired, please resend the activation email",
     "activateEmailSubject": "Activate your account"
+  },
+  "activateEmail": {
+    "emailTitle": "Activate your account",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
+    "emailButton": "Click here to activate your account",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
   },
   "forgotPassword": {
     "forgotPasswordDescription": "Please enter your email address, we will send you a link to reset your password.",
@@ -50,6 +72,14 @@
     "email": "Email",
     "invalidEmail": "Email is required"
   },
+  "forgotPasswordEmail": {
+    "emailTitle": "Reset your password",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "You have requested to reset your password. Please click the button below to reset your password. If you don't want to reset your password, you can ignore this message.",
+    "emailButton": "Click here to reset your password",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us"
+  },
+
   "home": {
     "hello": "Hello,",
     "description": "This is Home Page."
@@ -60,27 +90,5 @@
     "profile": "Profile",
     "setting": "Setting",
     "logout": "Logout"
-  },
-
-  "activate": {
-    "errorMsg": "error",
-    "activateMsg": "Activating...",
-    "activateSuccess": "Activate success",
-    "activateLogin": "Please Login",
-    "activateLinkOverdue": "Activate link overdue",
-    "activateEmailSend": "Resend the activation email !",
-    "activateEmailSendMsg": "Activation email has been sent to your email, please check your email",
-    "emailTitle": "Activate your account",
-    "emailContent1": "Thank you for using WebNextJS.",
-    "emailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
-    "emailButton": "Click here to activate your account",
-    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
-  },
-  "forgotPasswordEmail": {
-    "emailTitle": "Reset your password",
-    "emailContent1": "Thank you for using WebNextJS.",
-    "emailContent2": "You have requested to reset your password. Please click the button below to reset your password. If you don't want to reset your password, you can ignore this message.",
-    "emailButton": "Click here to reset your password",
-    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us"
   }
 }

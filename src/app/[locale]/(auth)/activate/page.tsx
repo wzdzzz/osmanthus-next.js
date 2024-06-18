@@ -50,14 +50,14 @@ export default function Page() {
     const res = await resendActiveEmail(token)
     if (res?.error) {
       toast({
-        title: t("errorMsg"),
+        title: t("activateEmailSendFailed"),
         variant: "destructive",
-        description: res?.error || t("loginFailedMsg"),
+        description: res?.error || t("activateEmailSendFailed"),
       })
     } else {
       toast({
         title: t("activateEmailSend"),
-        description: t("activateEmailSendMsg"),
+        description: t("activateEmailSendSuccess"),
         duration: 5000,
       })
     }
@@ -69,7 +69,7 @@ export default function Page() {
   if (!error && !success) {
     return (
       <div className="mt-5 px-4 md:px-20">
-        <Alert>
+        <Alert className="text-md p-8">
           <AlertTitle className="flex items-center gap-2">
             {t("activateMsg")}
           </AlertTitle>
@@ -81,8 +81,8 @@ export default function Page() {
   if (success) {
     return (
       <div className="mt-5 px-4 md:px-20">
-        <Alert>
-          <AlertTitle>🎉🎉🎉{t("activateSuccess")}</AlertTitle>
+        <Alert className="text-md p-8">
+          <AlertTitle className="mb-4">🎉🎉🎉{t("activateSuccess")}</AlertTitle>
           <AlertDescription>
             <Link href={"/login"}>
               <Button color="green" variant="link">
@@ -96,13 +96,13 @@ export default function Page() {
   }
   return (
     <div className="mt-5 px-4 md:px-20">
-      <Alert>
-        <AlertDescription className="flex items-center gap-2">
+      <Alert className="text-md mb-4 p-8">
+        <AlertTitle className="flex items-center gap-2">
           {error}
-          <Button color="green" variant="link" onClick={resendEmail}>
+          <span className="cursor-pointer underline" onClick={resendEmail}>
             {t("activateEmailSend")}
-          </Button>
-        </AlertDescription>
+          </span>
+        </AlertTitle>
       </Alert>
     </div>
   )

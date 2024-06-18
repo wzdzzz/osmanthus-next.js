@@ -18,10 +18,7 @@ interface EmailProps {
   namespace?: string
 }
 
-export default async function Email({
-  baseUrl,
-  namespace = "activate",
-}: EmailProps) {
+export default async function Email({ baseUrl, namespace }: EmailProps) {
   const t = await getTranslations(namespace)
 
   return (

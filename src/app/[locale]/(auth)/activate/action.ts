@@ -1,9 +1,12 @@
 "use server"
 
+import { getTranslations } from "next-intl/server"
+
 import { primsa } from "@/lib/primsa"
 import { sendActiveEmail } from "@/app/[locale]/(auth)/register/action"
 
 export const activateUser = async (token: string) => {
+  const t = await getTranslations("activate")
   const verificationToken = await primsa.verificationToken.findUnique({
     where: {
       token,
@@ -12,7 +15,7 @@ export const activateUser = async (token: string) => {
 
   if (!verificationToken || verificationToken.expires < new Date()) {
     return {
-      error: "当前链接已失效",
+      error: t("activateLinkExpires"),
     }
   }
   const user = await primsa.user.findUnique({
@@ -23,7 +26,7 @@ export const activateUser = async (token: string) => {
 
   if (!user) {
     return {
-      error: "激活失败，请联系管理员",
+      error: t("errorMsg"),
     }
   }
 
@@ -42,14 +45,16 @@ export const activateUser = async (token: string) => {
     },
   })
   return {
-    success: "激活成功",
+    success: t("activateSuccess"),
   }
 }
 
 export const resendActiveEmail = async (token?: string | null) => {
+  const t = await getTranslations("activate")
+
   if (!token) {
     return {
-      error: "当前链接已失效",
+      error: t("activateLinkExpires"),
     }
   }
   const data = await primsa.verificationToken.findUnique({
@@ -57,13 +62,21 @@ export const resendActiveEmail = async (token?: string | null) => {
       token,
     },
   })
-  console.log(data, "xxx")
 
   if (data) {
-    await sendActiveEmail({ email: data.identifier, subject: "激活账号" })
+    await sendActiveEmail({
+      email: data.identifier,
+      subject: t("activateEmailSubject"),
+      namespace: "activateEmail",
+    })
+    await primsa.verificationToken.delete({
+      where: {
+        token,
+      },
+    })
   } else {
     return {
-      error: "无法重新发送邮件，请联系管理员",
+      error: t("activateEmailSendFailed"),
     }
   }
 }

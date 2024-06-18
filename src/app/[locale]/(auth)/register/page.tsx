@@ -73,6 +73,7 @@ export default function RegisterPage() {
       await sendActiveEmail({
         email: values.email,
         subject: t("activateEmailSubject"),
+        namespace: "activateEmail",
       })
     }
     setLoading(false)

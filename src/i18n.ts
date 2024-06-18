@@ -16,5 +16,5 @@ export default getRequestConfig(async ({ locale }) => {
 export const localesMap = {
   en: "English",
   zh: "中文",
-  jp: "日本語",
+  jp: "日語",
 }

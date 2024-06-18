@@ -4,18 +4,17 @@ import { useTranslations } from "next-intl"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function Page() {
-  const t = useTranslations("login")
+  const t = useTranslations("register")
   return (
     <div className="mt-5 px-4 md:px-20">
-      <Alert>
-        <AlertTitle className="item-center flex">
-          🎉🎉🎉{t("registerSuccess")}
+      <Alert className="text-md p-8">
+        <AlertTitle className="item-center mb-4 flex">
+          🎉🎉🎉{t("registerSuccessMsg")}
         </AlertTitle>
         <AlertDescription>
-          {t("registerActivateEmail")}
-          <br />
+          {t("hasActivate")}
           <Link href={"/login"} className="underline">
-            {t("registerActivate")}
+            {t("toLogin")}
           </Link>
         </AlertDescription>
       </Alert>

@@ -35,7 +35,29 @@
     "passwordPlaceholder": "请输入密码",
     "usernamePlaceholder": "请输入用户名",
     "emailExist": "邮箱已存在",
+    "activateEmailSubject": "激活账号",
+    "registerSuccessMsg": "注册成功，请前往邮箱激活",
+    "hasActivate": "账号已激活，",
+    "toLogin": "去登录"
+  },
+  "activate": {
+    "errorMsg": "激活错误，请联系管理员",
+    "activateMsg": "激活中，请稍后...",
+    "activateSuccess": "激活成功",
+    "activateLogin": "返回登录",
+    "activateLinkOverdue": "激活链接已过期",
+    "activateEmailSend": "重新发送激活邮件 ！",
+    "activateEmailSendSuccess": "激活邮件已发送，请查收",
+    "activateEmailSendFailed": "激活邮件发送失败",
+    "activateLinkExpires": "当前链接已失效",
     "activateEmailSubject": "激活账号"
+  },
+  "activateEmail": {
+    "emailTitle": "激活账号",
+    "emailContent1": "感谢您使用 WebNextJS。",
+    "emailContent2": "创建流程。我们想确认真的是你。请点击下方的按钮激活。如果您不想激活帐户，可以忽略此消息。",
+    "emailButton": "点击这里激活账号",
+    "emailFooter": "本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
   },
   "forgotPassword": {
     "forgotPasswordDescription": "请输入您的邮箱，我们将发送重置密码的邮件",
@@ -50,6 +72,13 @@
     "email": "邮箱",
     "invalidEmail": "邮箱不正确"
   },
+  "forgotPasswordEmail": {
+    "emailTitle": "重置密码",
+    "emailContent1": "感谢您使用 WebNextJS。",
+    "emailContent2": "重置秘密流程。我们想确认真的是你。请点击下方的按钮重置密码。如果您不想重置密码，可以忽略此消息。",
+    "emailButton": "点击这里重置密码",
+    "emailFooter": "本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
+  },
   "home": {
     "hello": "你好，",
     "description": "这里是首页。"
@@ -60,28 +89,5 @@
     "profile": "个人信息",
     "setting": "个人设置",
     "logout": "退出"
-  },
-  "activate": {
-    "registerActivateEmail": "您的验证邮件已发送，请前往验证",
-    "registerActivate": "已验证？返回登录",
-    "errorMsg": "出错了",
-    "activateMsg": "激活中...",
-    "activateSuccess": "激活成功",
-    "activateLogin": "返回登录",
-    "activateLinkOverdue": "激活链接已过期",
-    "activateEmailSend": "重新发送激活邮件 ！",
-    "activateEmailSendMsg": "激活邮件已发送，请查收",
-    "emailTitle": "激活账号",
-    "emailContent1": "感谢您使用 WebNextJS。",
-    "emailContent2": "创建流程。我们想确认真的是你。请点击下方的按钮激活。如果您不想激活帐户，可以忽略此消息。",
-    "emailButton": "点击这里激活账号",
-    "emailFooter": "本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
-  },
-  "forgotPasswordEmail": {
-    "emailTitle": "重置密码",
-    "emailContent1": "感谢您使用 WebNextJS。",
-    "emailContent2": "重置秘密流程。我们想确认真的是你。请点击下方的按钮重置密码。如果您不想重置密码，可以忽略此消息。",
-    "emailButton": "点击这里重置密码",
-    "emailFooter": "本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
   }
 }

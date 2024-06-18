@@ -40,9 +40,10 @@ export const register = async (data: RegisterFormSchemaType) => {
 export const sendActiveEmail = async (data: {
   email: string
   subject: string
+  namespace?: string
 }) => {
   const token = uuid()
-  const { subject, email } = data
+  const { subject, email, namespace } = data
 
   await primsa.verificationToken.create({
     data: {
@@ -54,7 +55,7 @@ export const sendActiveEmail = async (data: {
 
   const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/activate?token=${token}`
 
-  const emailHtml = render(await Email({ baseUrl }))
+  const emailHtml = render(await Email({ baseUrl, namespace }))
 
   await sendEmail({
     to: email,
