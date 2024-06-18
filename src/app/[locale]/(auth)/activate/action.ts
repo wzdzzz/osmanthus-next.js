@@ -60,7 +60,7 @@ export const resendActiveEmail = async (token?: string | null) => {
   console.log(data, "xxx")
 
   if (data) {
-    await sendActiveEmail({ email: data.identifier })
+    await sendActiveEmail({ email: data.identifier, subject: "激活账号" })
   } else {
     return {
       error: "无法重新发送邮件，请联系管理员",

@@ -24,26 +24,28 @@ import { useToast } from "@/components/ui/use-toast"
 
 import { register, sendActiveEmail } from "./action"
 
-const registerFormSchema = z.object({
-  username: z.string().min(1, {
-    message: "不能为空",
-  }),
-  password: z.string().min(1, {
-    message: "不能为空",
-  }),
-  email: z.string().email({ message: "无效的邮箱格式" }),
-})
+const registerFormSchemaFn = (t?: (arg: string) => string) =>
+  z.object({
+    username: z.string().min(1, {
+      message: t?.("invalidUsername"),
+    }),
+    password: z.string().min(1, {
+      message: t?.("invalidPassword"),
+    }),
+    email: z.string().email({ message: "invalidEmail" }),
+  })
 
+const registerFormSchema = registerFormSchemaFn()
 export type RegisterFormSchemaType = z.infer<typeof registerFormSchema>
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   const router = useRouter()
-  const t = useTranslations("login")
+  const t = useTranslations("register")
 
   const form = useForm<RegisterFormSchemaType>({
-    resolver: zodResolver(registerFormSchema),
+    resolver: zodResolver(registerFormSchemaFn(t)),
     defaultValues: {
       email: "",
       username: "",
@@ -63,9 +65,15 @@ export default function RegisterPage() {
         variant: "destructive",
       })
     } else {
-      // 注册成功，跳到注册结果页
+      toast({
+        title: t("registerSuccess"),
+        description: t("registerSuccessDescription"),
+      })
       router.push("/register/result")
-      await sendActiveEmail({ email: values.email })
+      await sendActiveEmail({
+        email: values.email,
+        subject: t("activateEmailSubject"),
+      })
     }
     setLoading(false)
   }
@@ -86,7 +94,10 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>{t("username")}</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        placeholder={t("usernamePlaceholder")}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,7 +110,7 @@ export default function RegisterPage() {
                   <FormItem className="mt-5">
                     <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} placeholder={t("emailPlaceholder")} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,7 +123,11 @@ export default function RegisterPage() {
                   <FormItem className="mt-5">
                     <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
-                      <Input type="password" {...field} />
+                      <Input
+                        type="password"
+                        {...field}
+                        placeholder={t("passwordPlaceholder")}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -128,15 +143,16 @@ export default function RegisterPage() {
                   {loading && (
                     <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                   )}
-                  {t("register")}
+                  {t("submit")}
                 </Button>
               </div>
-              <Link
-                href={"/login"}
-                className="mt-[12px] flex justify-center text-sm underline"
-              >
-                {t("backLogin")}
-              </Link>
+
+              <div className="mt-3 flex items-center justify-center gap-1 text-sm">
+                {t("hasAccount")}
+                <Link href={"/login"} className="flex underline">
+                  {t("backLogin")}
+                </Link>
+              </div>
             </form>
           </div>
         </Form>

@@ -26,21 +26,24 @@ import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { sendPasswordResetEmail } from "@/app/[locale]/(auth)/forgot-password/action"
 
-const ForgotPasswordSchema = z.object({
-  email: z.string().email({
-    message: "邮箱格式不正确",
-  }),
-})
+const ForgotPasswordSchemaFn = (t?: (arg: string) => string) =>
+  z.object({
+    email: z.string().email({
+      message: t?.("invalidEmail"),
+    }),
+  })
+
+const ForgotPasswordSchema = ForgotPasswordSchemaFn()
 
 export type ForgotPasswordSchemaType = z.infer<typeof ForgotPasswordSchema>
 
 export default function ForgotPassword() {
-  const t = useTranslations("login")
+  const t = useTranslations("forgotPassword")
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
 
   const form = useForm<ForgotPasswordSchemaType>({
-    resolver: zodResolver(ForgotPasswordSchema),
+    resolver: zodResolver(ForgotPasswordSchemaFn(t)),
     defaultValues: {
       email: "",
     },
@@ -85,7 +88,7 @@ export default function ForgotPassword() {
                     <FormItem className="mt-5">
                       <FormLabel>{t("email")}</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field} placeholder={t("emailPlaceholder")} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

@@ -1,6 +1,7 @@
 "use server"
 
 import { AuthError } from "next-auth"
+import { getTranslations } from "next-intl/server"
 
 import { signIn } from "@/config/auth.config"
 import { primsa } from "@/lib/primsa"
@@ -27,6 +28,7 @@ export const loginWithGitee = async () => {
 export const loginWithCredentials = async (
   credentials: loginFormSchemaType
 ) => {
+  const t = await getTranslations("login")
   try {
     const existUser = await primsa.user.findUnique({
       where: {
@@ -35,13 +37,13 @@ export const loginWithCredentials = async (
     })
     if (!existUser || !existUser.email) {
       return {
-        error: "用户名不存在",
+        error: t("loginErrMsg"),
       }
     }
 
     if (!existUser.emailVerified) {
       return {
-        error: "用户未激活，请激活后登录",
+        error: t("noActivate"),
       }
     }
 
@@ -52,11 +54,10 @@ export const loginWithCredentials = async (
   } catch (error) {
     if (error instanceof AuthError) {
       return {
-        error: "用户名或密码错误",
+        error: t("loginErrMsg"),
       }
     }
 
-    // 这里一定要抛出异常，不然成功登录后不会重定向
     throw error
   }
 }

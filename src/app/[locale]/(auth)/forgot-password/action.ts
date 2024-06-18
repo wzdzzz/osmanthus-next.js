@@ -3,6 +3,7 @@
 import { env } from "@/env.mjs"
 import Email from "@/templates/email"
 import { render } from "@react-email/render"
+import { getTranslations } from "next-intl/server"
 import { v4 as uuid } from "uuid"
 
 import { sendEmail } from "@/lib/email"
@@ -12,9 +13,10 @@ import { ForgotPasswordSchemaType } from "@/app/[locale]/(auth)/forgot-password/
 export const sendPasswordResetEmail = async ({
   email,
 }: ForgotPasswordSchemaType) => {
+  const t = await getTranslations("login")
   try {
     const token = uuid()
-    // 先查询是否有账号
+
     const existUser = await primsa.user.findFirst({
       where: {
         email,
@@ -23,7 +25,7 @@ export const sendPasswordResetEmail = async ({
 
     if (!existUser) {
       return {
-        error: "用户不存在",
+        error: t("userNotExist"),
       }
     }
 
@@ -38,17 +40,17 @@ export const sendPasswordResetEmail = async ({
     const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/activate?token=${token}`
 
     const emailHtml = render(
-      await Email({ baseUrl, namespace: "forgotPassword" })
+      await Email({ baseUrl, namespace: "forgotPasswordEmail" })
     )
 
     await sendEmail({
       to: email,
-      subject: "发送成功",
+      subject: t("resetPassword"),
       html: emailHtml,
     })
   } catch (err) {
     return {
-      error: "发送失败，请重试",
+      error: t("sendFailed"),
     }
   }
 }

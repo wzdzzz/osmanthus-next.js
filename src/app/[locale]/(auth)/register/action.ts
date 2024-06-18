@@ -4,6 +4,7 @@ import { env } from "@/env.mjs"
 import Email from "@/templates/email"
 import { render } from "@react-email/render"
 import bcrypt from "bcrypt"
+import { getTranslations } from "next-intl/server"
 import { v4 as uuid } from "uuid"
 
 import { sendEmail } from "@/lib/email"
@@ -11,6 +12,8 @@ import { primsa } from "@/lib/primsa"
 import { RegisterFormSchemaType } from "@/app/[locale]/(auth)/register/page"
 
 export const register = async (data: RegisterFormSchemaType) => {
+  const t = await getTranslations("register")
+
   const existUser = await primsa.user.findFirst({
     where: {
       email: data.email,
@@ -19,7 +22,7 @@ export const register = async (data: RegisterFormSchemaType) => {
 
   if (existUser) {
     return {
-      error: "用户已存在",
+      error: t("emailExist"),
     }
   }
 
@@ -34,12 +37,16 @@ export const register = async (data: RegisterFormSchemaType) => {
   })
 }
 
-export const sendActiveEmail = async (data: { email: string }) => {
+export const sendActiveEmail = async (data: {
+  email: string
+  subject: string
+}) => {
   const token = uuid()
+  const { subject, email } = data
 
   await primsa.verificationToken.create({
     data: {
-      identifier: data.email,
+      identifier: email,
       token,
       expires: new Date(Date.now() + 60 * 60 * 1000),
     },
@@ -50,8 +57,8 @@ export const sendActiveEmail = async (data: { email: string }) => {
   const emailHtml = render(await Email({ baseUrl }))
 
   await sendEmail({
-    to: data.email,
-    subject: "注册成功",
+    to: email,
+    subject,
     html: emailHtml,
   })
 }

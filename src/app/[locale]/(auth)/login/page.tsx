@@ -28,14 +28,17 @@ import {
   loginWithGoogle,
 } from "@/app/[locale]/(auth)/login/action"
 
-const loginFormSchema = z.object({
-  email: z.string().email({
-    message: "邮箱格式不正确",
-  }),
-  password: z.string().min(1, {
-    message: "密码不能为空",
-  }),
-})
+const loginFormSchemaFn = (t?: (arg: string) => string) =>
+  z.object({
+    email: z.string().email({
+      message: t?.("invalidEmail"),
+    }),
+    password: z.string().min(1, {
+      message: t?.("invalidPassword"),
+    }),
+  })
+
+const loginFormSchema = loginFormSchemaFn()
 
 export type loginFormSchemaType = z.infer<typeof loginFormSchema>
 
@@ -44,7 +47,7 @@ export default function LoginPage() {
   const t = useTranslations("login")
 
   const form = useForm<loginFormSchemaType>({
-    resolver: zodResolver(loginFormSchema),
+    resolver: zodResolver(loginFormSchemaFn(t)),
     defaultValues: {
       email: "",
       password: "",
@@ -84,7 +87,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} placeholder={t("emailPlaceholder")} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -105,7 +108,11 @@ export default function LoginPage() {
                       </Link>
                     </FormLabel>
                     <FormControl>
-                      <Input type="password" {...field} />
+                      <Input
+                        type="password"
+                        {...field}
+                        placeholder={t("passwordPlaceholder")}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -137,7 +144,7 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-center gap-2 text-sm">
+                <div className="mt-3 flex items-center justify-center gap-1 text-sm">
                   {t("noAccount")}
                   <Link href={"/register"} className="flex underline">
                     {t("signUp")}

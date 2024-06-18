@@ -1,4 +1,55 @@
 {
+  "login": {
+    "emailPlaceholder": "Please enter your email address",
+    "passwordPlaceholder": "Please enter your password",
+    "title": "Login",
+    "loginFailed": "Login failed",
+    "loginSuccess": "Login success",
+    "loginFailedMsg": "Login failed, Please check your email and password",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "forgotPassword": "Forgot your password?",
+    "invalidEmail": "Email is required",
+    "invalidPassword": "Password is required",
+    "loginErrMsg": "Please enter your email and password",
+    "noActivate": "Account not activated, please check your email to activate your account"
+  },
+  "register": {
+    "invalidUsername": "Username is required",
+    "invalidEmail": "Email is required",
+    "invalidPassword": "Password is required",
+    "registerFailed": "Register failed",
+    "registerSuccess": "Register success",
+    "registerSuccessDescription": "Register success, please check your email to activate your account",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Register",
+    "hasAccount": "Already have an account?",
+    "backLogin": "Back to login",
+    "emailPlaceholder": "Please enter your email address",
+    "passwordPlaceholder": "Please enter your password",
+    "usernamePlaceholder": "Please enter your username",
+    "emailExist": "Email already exists",
+    "activateEmailSubject": "Activate your account"
+  },
+  "forgotPassword": {
+    "forgotPasswordDescription": "Please enter your email address, we will send you a link to reset your password.",
+    "sendEmail": "Send Email",
+    "sendSuccess": "Send success",
+    "sendFailed": "Send failed",
+    "sendSuccessDescription": "We have sent an email to your email address, please check your email.",
+    "emailPlaceholder": "Please enter your email address",
+    "userNotExist": "User does not exist",
+    "resetPassword": "Reset Password",
+    "forgotPassword": "Forgot your password ?",
+    "email": "Email",
+    "invalidEmail": "Email is required"
+  },
   "home": {
     "hello": "Hello,",
     "description": "This is Home Page."
@@ -10,33 +61,7 @@
     "setting": "Setting",
     "logout": "Logout"
   },
-  "login": {
-    "title": "Login",
-    "loginFailed": "Login failed",
-    "loginSuccess": "Login success",
-    "loginFailedMsg": "Login failed, Please check your email and password",
-    "email": "Email",
-    "password": "Password",
-    "submit": "Login",
-    "forgotPassword": "Forgot your password?",
-    "register": "Sign in",
-    "loginWithGithub": "Github",
-    "noAccount": "Don't have an account?",
-    "signUp": "Sign up",
-    "invalidEmail": "email is required",
-    "invalidPassword": "password is required",
-    "registerFailed": "Register failed",
-    "registerSuccess": "Register success",
-    "registerActivateEmail": "Your verification email has been sent, please go to Verify",
-    "registerActivate": "Verified? Go back to Login",
-    "username": "Username",
-    "backLogin": "Back to login",
-    "forgotPasswordDescription": "Please enter your email address, we will send you a link to reset your password",
-    "sendEmail": "Send Email",
-    "sendSuccess": "Send success",
-    "sendFailed": "Send failed",
-    "sendSuccessDescription": "We have sent an email to your email address, please check your email"
-  },
+
   "activate": {
     "errorMsg": "error",
     "activateMsg": "Activating...",
@@ -51,7 +76,7 @@
     "emailButton": "Click here to activate your account",
     "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
   },
-  "forgotPassword": {
+  "forgotPasswordEmail": {
     "emailTitle": "Reset your password",
     "emailContent1": "Thank you for using WebNextJS.",
     "emailContent2": "You have requested to reset your password. Please click the button below to reset your password. If you don't want to reset your password, you can ignore this message.",
