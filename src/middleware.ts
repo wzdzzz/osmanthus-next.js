@@ -36,7 +36,13 @@ const intlMiddleware = createMiddleware({
   localePrefix: "never",
 })
 
-const authPages = ["/login", "/register", "/register/result", "/activate"]
+const authPages = [
+  "/login",
+  "/register",
+  "/register/result",
+  "/activate",
+  "/forgot-password",
+]
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(
@@ -51,7 +57,6 @@ const authMiddleware = auth((req) => {
   const isNoRedirectRoute = noRedirectRoute.some((route) =>
     new RegExp(route).test(pathname)
   )
-  console.log(isNoRedirectRoute, pathname, "isNoRedirectRoute")
   if (isNoRedirectRoute) {
     return NextResponse.next()
   }
@@ -65,10 +70,11 @@ const authMiddleware = auth((req) => {
     return intlMiddleware(req)
   }
 
-  const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname)
+  const isAuthPage = testPathnameRegex(authPages, pathname)
   const isLoggedIn = !!req.auth?.user
   // 不需要登录的页面
   const whiteList = ["/", "/list"]
+  console.log(isAuthPage, pathname, "isNoRedirectRoute")
 
   if (!isLoggedIn) {
     if (!isAuthPage && !whiteList.includes(pathname)) {

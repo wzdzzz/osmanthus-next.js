@@ -14,7 +14,7 @@ export default function Page() {
         <AlertDescription>
           {t("registerActivateEmail")}
           <br />
-          <Link href={"/login"} className="text-blue-500">
+          <Link href={"/login"} className="underline">
             {t("registerActivate")}
           </Link>
         </AlertDescription>

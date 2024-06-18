@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Form,
   FormControl,
@@ -16,10 +17,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import ColorfulCard from "@/components/colorful-card"
-
-import "./index.css"
-
 import { useToast } from "@/components/ui/use-toast"
 import { GiteeIcon } from "@/components/icons/gitee-icon"
 import { GithubIcon } from "@/components/icons/github-icon"
@@ -72,19 +69,14 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex justify-center pt-10 md:pt-20">
-      <ColorfulCard>
+    <Card className="mx-auto mt-10 max-w-[90vw] md:max-w-md">
+      <CardHeader>
+        <CardTitle className="text-xl">{t("title")}</CardTitle>
+      </CardHeader>
+      <CardContent>
         <Form {...form}>
           <div>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="w-[90vw] min-w-[300px] max-w-[420px] p-5"
-            >
-              <div className="my-5 flex justify-center">
-                <h1 className="text-2xl font-bold text-primary">
-                  {t("title")}
-                </h1>
-              </div>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
                 control={form.control}
                 name="email"
@@ -103,7 +95,15 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="mt-5">
-                    <FormLabel>{t("password")}</FormLabel>
+                    <FormLabel className="flex justify-between">
+                      <div>{t("password")}</div>
+                      <Link
+                        href={"/forgot-password"}
+                        className="ml-auto inline-block text-sm underline"
+                      >
+                        {t("forgotPassword")}
+                      </Link>
+                    </FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -115,43 +115,39 @@ export default function LoginPage() {
                   {t("submit")}
                 </Button>
               </div>
-              <div className="mt-4 flex flex-col gap-3">
-                <div className="flex items-center justify-center gap-3">
+              <div className="mt-8 flex flex-col gap-3">
+                <div className="flex items-center justify-center gap-8">
                   <div
                     className="cursor-pointer rounded-full"
                     onClick={() => loginWithGithub()}
                   >
-                    <GithubIcon />
+                    <GithubIcon classname="dark:fill-white" />
                   </div>
                   <div
                     className="cursor-pointer rounded-full"
                     onClick={() => loginWithGoogle()}
                   >
-                    <GoogleIcon />
+                    <GoogleIcon classname="dark:fill-white" />
                   </div>
                   <div
                     className="cursor-pointer rounded-full"
                     onClick={() => loginWithGitee()}
                   >
-                    <GiteeIcon />
+                    <GiteeIcon classname="dark:fill-white" />
                   </div>
                 </div>
 
-                <Link href={"/register"} className="mt-3 flex">
-                  <Button
-                    size="lg"
-                    variant="link"
-                    type="button"
-                    className="flex-1"
-                  >
-                    {t("registerAccount")}
-                  </Button>
-                </Link>
+                <div className="mt-3 flex items-center justify-center gap-2 text-sm">
+                  {t("noAccount")}
+                  <Link href={"/register"} className="flex underline">
+                    {t("signUp")}
+                  </Link>
+                </div>
               </div>
             </form>
           </div>
         </Form>
-      </ColorfulCard>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

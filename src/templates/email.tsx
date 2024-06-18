@@ -15,10 +15,14 @@ import { getTranslations } from "next-intl/server"
 
 interface EmailProps {
   baseUrl?: string
+  namespace?: string
 }
 
-export default async function Email({ baseUrl }: EmailProps) {
-  const t = await getTranslations("activate")
+export default async function Email({
+  baseUrl,
+  namespace = "activate",
+}: EmailProps) {
+  const t = await getTranslations(namespace)
 
   return (
     <Html>
@@ -29,20 +33,20 @@ export default async function Email({ baseUrl }: EmailProps) {
           <Section style={coverSection}>
             <Section style={imageSection}>Web NextJS</Section>
             <Section style={upperSection}>
-              <Heading style={h1}>{t("activateEmailTitle")}</Heading>
+              <Heading style={h1}>{t("emailTitle")}</Heading>
               <Text style={mainText}>
-                {t("activateEmailContent1")}
-                {t("activateEmailContent2")}
+                {t("emailContent1")}
+                {t("emailContent2")}
               </Text>
               <Section style={verificationSection}>
                 <Link style={link} href={baseUrl}>
-                  👉 {t("activateEmailButton")} 👈
+                  👉 {t("emailButton")} 👈
                 </Link>
               </Section>
             </Section>
             <Hr />
             <Section style={lowerSection}>
-              <Text style={cautionText}>{t("activateEmailFooter")}</Text>
+              <Text style={cautionText}>{t("emailFooter")}</Text>
             </Section>
           </Section>
         </Container>

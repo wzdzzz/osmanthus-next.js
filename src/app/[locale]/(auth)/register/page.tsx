@@ -5,10 +5,12 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ReloadIcon } from "@radix-ui/react-icons"
+import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Form,
   FormControl,
@@ -19,13 +21,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
-import ColorfulCard from "@/components/colorful-card"
 
 import { register, sendActiveEmail } from "./action"
-
-import "./index.css"
-
-import { useTranslations } from "next-intl"
 
 const registerFormSchema = z.object({
   username: z.string().min(1, {
@@ -74,19 +71,14 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex justify-center pt-10 md:pt-20">
-      <ColorfulCard>
+    <Card className="mx-auto mt-10 max-w-[90vw] md:max-w-md">
+      <CardHeader>
+        <CardTitle className="text-xl">{t("register")}</CardTitle>
+      </CardHeader>
+      <CardContent>
         <Form {...form}>
           <div>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="w-[90vw] min-w-[300px] max-w-[420px] p-5"
-            >
-              <div className="my-5 flex justify-center">
-                <h1 className="text-2xl font-bold text-primary">
-                  {t("register")}
-                </h1>
-              </div>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
                 control={form.control}
                 name="username"
@@ -139,21 +131,16 @@ export default function RegisterPage() {
                   {t("register")}
                 </Button>
               </div>
-              <Link href={"/login"} className="mt-[12px] flex">
-                <Button
-                  disabled={loading}
-                  size="lg"
-                  variant="link"
-                  className="flex-1"
-                  type="button"
-                >
-                  {t("backLogin")}
-                </Button>
+              <Link
+                href={"/login"}
+                className="mt-[12px] flex justify-center text-sm underline"
+              >
+                {t("backLogin")}
               </Link>
             </form>
           </div>
         </Form>
-      </ColorfulCard>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

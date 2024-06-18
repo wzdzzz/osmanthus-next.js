@@ -11,24 +11,31 @@
     "logout": "Logout"
   },
   "login": {
-    "title": "login",
+    "title": "Login",
     "loginFailed": "Login failed",
     "loginSuccess": "Login success",
     "loginFailedMsg": "Login failed, Please check your email and password",
-    "email": "email",
-    "password": "password",
-    "submit": "login",
-    "register": "sign in",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "forgotPassword": "Forgot your password?",
+    "register": "Sign in",
     "loginWithGithub": "Github",
-    "registerAccount": "No account? Sign up",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
     "invalidEmail": "email is required",
     "invalidPassword": "password is required",
     "registerFailed": "Register failed",
     "registerSuccess": "Register success",
     "registerActivateEmail": "Your verification email has been sent, please go to Verify",
     "registerActivate": "Verified? Go back to Login",
-    "username": "username",
-    "backLogin": "Back to login"
+    "username": "Username",
+    "backLogin": "Back to login",
+    "forgotPasswordDescription": "Please enter your email address, we will send you a link to reset your password",
+    "sendEmail": "Send Email",
+    "sendSuccess": "Send success",
+    "sendFailed": "Send failed",
+    "sendSuccessDescription": "We have sent an email to your email address, please check your email"
   },
   "activate": {
     "errorMsg": "error",
@@ -38,10 +45,17 @@
     "activateLinkOverdue": "Activate link overdue",
     "activateEmailSend": "Resend the activation email !",
     "activateEmailSendMsg": "Activation email has been sent to your email, please check your email",
-    "activateEmailTitle": "Activate your account",
-    "activateEmailContent1": "Thank you for using WebNextJS",
-    "activateEmailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
-    "activateEmailButton": "Click here to activate your account",
-    "activateEmailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
+    "emailTitle": "Activate your account",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
+    "emailButton": "Click here to activate your account",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
+  },
+  "forgotPassword": {
+    "emailTitle": "Reset your password",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "You have requested to reset your password. Please click the button below to reset your password. If you don't want to reset your password, you can ignore this message.",
+    "emailButton": "Click here to reset your password",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us"
   }
 }

@@ -5,12 +5,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "build:test": "cross-env NODE_ENV=test next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
-    "prettier": "prettier -c --write \"**/**.{js,jsx,tsx,ts,less,md,json}\""
+    "prettier": "prettier -c --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
+    "generate": "prisma generate"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
@@ -96,6 +98,7 @@
     "add": "^2.0.6",
     "autoprefixer": "^10.4.19",
     "bcrypt": "^5.1.1",
+    "cross-env": "^7.0.3",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.11",
