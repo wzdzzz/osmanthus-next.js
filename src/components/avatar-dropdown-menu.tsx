@@ -66,13 +66,14 @@ export default async function AvatarDropdownMenu() {
 
           <DropdownMenuItem>
             <form
+              className={"w-full"}
               action={async () => {
                 "use server"
                 await signOut({ redirectTo: `/login` })
               }}
             >
-              <Button variant="ghost" className="h-4 pl-0">
-                {t("logout")}
+              <Button variant="ghost" className="w-full">
+                <span> {t("logout")}</span>
               </Button>
             </form>
           </DropdownMenuItem>
