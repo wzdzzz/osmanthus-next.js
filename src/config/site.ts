@@ -24,4 +24,25 @@ export const siteConfig = {
       text: "Examples",
     },
   ],
+  docsNavList: [
+    {
+      title: "Getting Started",
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs",
+          items: [],
+        },
+        {
+          title: "Installation",
+          href: "/docs/installation",
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Components",
+      href: "/docs/components/accordion",
+    },
+  ],
 }

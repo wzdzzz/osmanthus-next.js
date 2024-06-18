@@ -14,6 +14,7 @@ export const Pre = ({
 }): ReactElement => {
   const preRef = useRef<HTMLPreElement | null>(null)
   // 解析 code 标签以获取语言类型和其他属性
+  // @ts-ignore
   const str = children?.props?.className || ""
   const language = str
     .split(" ")
