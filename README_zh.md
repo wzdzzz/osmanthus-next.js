@@ -2,7 +2,7 @@
 
 Web-Next.js 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项目提供了完整的解决方案。
 
-[English Docs](./ReadME.md)
+[English Docs](./README.md)
 
 ## 功能特性
 

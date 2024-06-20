@@ -2,7 +2,7 @@
 
 Web-Next.js is a template based on Next.js 14, providing a complete solution for developing projects with Next.js.
 
-[中文文档](./ReadME_zh.md)
+[中文文档](./README_zh.md)
 
 ## Features
 
