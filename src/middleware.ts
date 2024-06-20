@@ -74,7 +74,7 @@ const authMiddleware = auth((req) => {
   const isLoggedIn = !!req.auth?.user
   // 不需要登录的页面
   const whiteList = ["/", "/list"]
-  console.log(isLoggedIn, isAuthPage, pathname, "isNoRedirectRoute")
+  console.log("pathname", pathname)
 
   if (!isLoggedIn) {
     if (!isAuthPage && !whiteList.includes(pathname)) {

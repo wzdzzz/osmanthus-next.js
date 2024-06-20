@@ -4,6 +4,8 @@ Web-Next.js is a template based on Next.js 14, providing a complete solution for
 
 [中文文档](./README_zh.md)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wzdzzz/web-nextjs)
+
 ## Features
 
 - **Next.js 14**: Utilizes the latest App Router directory structure.

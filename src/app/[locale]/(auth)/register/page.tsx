@@ -56,15 +56,8 @@ export default function RegisterPage() {
   // 2. Define a submit handler.
   async function onSubmit(values: RegisterFormSchemaType) {
     setLoading(true)
-    const result = await register(values)
-
-    if (result?.error) {
-      toast({
-        title: t("registerFailed"),
-        description: result.error,
-        variant: "destructive",
-      })
-    } else {
+    try {
+      await register(values)
       toast({
         title: t("registerSuccess"),
         description: t("registerSuccessDescription"),
@@ -75,8 +68,14 @@ export default function RegisterPage() {
         subject: t("activateEmailSubject"),
         namespace: "activateEmail",
       })
+    } catch (err) {
+      setLoading(false)
+      console.log(err)
+      toast({
+        title: t("registerFailed"),
+        variant: "destructive",
+      })
     }
-    setLoading(false)
   }
 
   return (

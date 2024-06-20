@@ -63,6 +63,7 @@ export default function LoginPage() {
         variant: "destructive",
         description: res?.error || t("loginFailedMsg"),
       })
+      return true
     } else {
       toast({
         title: t("loginSuccess"),
