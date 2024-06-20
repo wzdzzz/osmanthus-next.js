@@ -8,6 +8,7 @@ export default function Page() {
         <h1 className="max-w-3xl text-2xl md:text-5xl">
           {t("hello")}
           <span className="ml-4 text-gray-500">{t("description")}</span>
+          <span>now</span>
         </h1>
       </div>
     </div>
