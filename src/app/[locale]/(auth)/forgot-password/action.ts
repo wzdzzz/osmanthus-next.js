@@ -13,7 +13,7 @@ import { ForgotPasswordSchemaType } from "@/app/[locale]/(auth)/forgot-password/
 export const sendPasswordResetEmail = async ({
   email,
 }: ForgotPasswordSchemaType) => {
-  const t = await getTranslations("login")
+  const t = await getTranslations("forgotPassword")
   try {
     const token = uuid()
 
@@ -49,6 +49,7 @@ export const sendPasswordResetEmail = async ({
       html: emailHtml,
     })
   } catch (err) {
+    console.log(err, "rrr")
     return {
       error: t("sendFailed"),
     }
