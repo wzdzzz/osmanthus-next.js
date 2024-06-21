@@ -10,12 +10,12 @@ export interface MailInfo {
 
 export const sendEmail = async (mailInfo: MailInfo) => {
   const transporter = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    port: +(process.env.MAIL_PORT || 465),
+    host: env.MAIL_HOST,
+    port: +(env.MAIL_PORT || 465),
     secure: true,
     auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
+      user: env.MAIL_USER,
+      pass: env.MAIL_PASS,
     },
   })
 

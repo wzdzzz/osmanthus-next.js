@@ -52,19 +52,23 @@ export default function ForgotPassword() {
 
   const onSubmit = async (values: ForgotPasswordSchemaType) => {
     setLoading(true)
-    const result = await sendPasswordResetEmail(values)
-    setLoading(false)
-    if (result?.error) {
-      toast({
-        title: t("sendFailed"),
-        description: result.error,
-        variant: "destructive",
-      })
-    } else {
-      toast({
-        title: t("sendSuccess"),
-        description: t("sendSuccessDescription"),
-      })
+    try {
+      const result = await sendPasswordResetEmail(values)
+      setLoading(false)
+      if (result?.error) {
+        toast({
+          title: t("sendFailed"),
+          description: result.error,
+          variant: "destructive",
+        })
+      } else {
+        toast({
+          title: t("sendSuccess"),
+          description: t("sendSuccessDescription"),
+        })
+      }
+    } catch (err) {
+      setLoading(false)
     }
   }
 

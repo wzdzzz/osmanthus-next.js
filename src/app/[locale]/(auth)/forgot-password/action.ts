@@ -49,6 +49,7 @@ export const sendPasswordResetEmail = async ({
       html: emailHtml,
     })
   } catch (err) {
+    console.log(err, "err")
     return {
       error: t("sendFailed"),
     }
