@@ -1,10 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { useEffect, useTransition } from "react"
-import { usePathname, useRouter } from "next/navigation"
+import { useTransition } from "react"
+import { useSearchParams } from "next/navigation"
 import { locales, localesMap } from "@/i18n"
 import { useLocale } from "next-intl"
+import { createSharedPathnamesNavigation } from "next-intl/navigation"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,24 +15,23 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+const { usePathname, useRouter } = createSharedPathnamesNavigation({
+  locales,
+  localePrefix: "never",
+})
+
 export function LocaleChange() {
   const router = useRouter()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
   const locale = useLocale()
 
   const [, startTransition] = useTransition()
-  const [query, setQuery] = React.useState<string | null>(null)
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    setQuery(url.search)
-  }, [])
 
   function onClick(locale: string) {
     startTransition(() => {
-      const newPathName = query
-        ? `/${locale}/${pathname}${query}`
-        : `/${locale}/${pathname}`
-      router.push(newPathName)
+      router.replace(`${pathname}?${searchParams.toString()}`, { locale })
+
       router.refresh()
     })
   }

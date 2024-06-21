@@ -9,7 +9,6 @@ const { auth } = NextAuth({
 const noRedirectRoute = ["/api(.*)"]
 
 const publicRoute = [
-  "/(\\w{2}/)?signin(.*)",
   "/(\\w{2}/)?terms(.*)",
   "/(\\w{2}/)?privacy(.*)",
   "/(\\w{2}/)?docs(.*)",
@@ -22,7 +21,7 @@ const publicRoute = [
   "/(\\w{2}/)?contact(.*)",
   "/(\\w{2}/)?about(.*)",
   "/(\\w{2}/)?unauthorized(.*)",
-  "^/\\w{2}$", // root with locale
+  "^/\\w{2}$",
 ]
 
 function isPublicPage(request: NextRequest): boolean {
@@ -100,20 +99,16 @@ const authMiddleware = auth((req) => {
 const middleware = (req: NextRequest) => {
   const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname)
 
-  if (isAuthPage) {
+  if (!isPublicPage(req) || isAuthPage) {
     return (authMiddleware as any)(req)
-  }
-
-  if (isPublicPage(req)) {
-    return intlMiddleware(req)
   } else {
-    return (authMiddleware as any)(req)
+    return intlMiddleware(req)
   }
 }
 
 // 排除掉一些接口和静态资源
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)", "/"],
 }
 
 export default middleware
