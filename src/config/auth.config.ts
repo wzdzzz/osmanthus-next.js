@@ -17,6 +17,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: {
     strategy: "jwt",
   },
+  secret: process.env.SECRET,
   providers: [
     Github({
       allowDangerousEmailAccountLinking: true,
@@ -71,14 +72,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     jwt: async ({ token }) => {
-      const user = await fetch("http://localhost:3000/api/user/user", {
-        headers: {
-          Authorization: `Bearer ${token.sub}`,
-        },
-      }).then((res) => res.json())
-
+      // const user = await fetch("http://localhost:3000/api/user/user", {
+      //   headers: {
+      //     Authorization: `Bearer ${token.sub}`,
+      //   },
+      // }).then((res) => res.json())
+      console.log(token, "tt")
       return {
-        ...user,
+        // ...user,
         ...token,
       }
     },
