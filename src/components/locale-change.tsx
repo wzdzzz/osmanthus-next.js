@@ -5,8 +5,8 @@ import { useTransition } from "react"
 import { useSearchParams } from "next/navigation"
 import { locales, localesMap } from "@/i18n"
 import { useLocale } from "next-intl"
-import { createSharedPathnamesNavigation } from "next-intl/navigation"
 
+import { usePathname, useRouter } from "@/lib/i18n-navigation"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -14,11 +14,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-const { usePathname, useRouter } = createSharedPathnamesNavigation({
-  locales,
-  localePrefix: "never",
-})
 
 export function LocaleChange() {
   const router = useRouter()
@@ -31,7 +26,6 @@ export function LocaleChange() {
   function onClick(locale: string) {
     startTransition(() => {
       router.replace(`${pathname}?${searchParams.toString()}`, { locale })
-
       router.refresh()
     })
   }
