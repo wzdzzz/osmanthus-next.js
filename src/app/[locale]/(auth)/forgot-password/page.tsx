@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { ReloadIcon } from "@radix-ui/react-icons"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -51,9 +52,8 @@ export default function ForgotPassword() {
 
   const onSubmit = async (values: ForgotPasswordSchemaType) => {
     setLoading(true)
-
     const result = await sendPasswordResetEmail(values)
-
+    setLoading(false)
     if (result?.error) {
       toast({
         title: t("sendFailed"),
@@ -66,7 +66,6 @@ export default function ForgotPassword() {
         description: t("sendSuccessDescription"),
       })
     }
-    setLoading(false)
   }
 
   return (
@@ -102,6 +101,9 @@ export default function ForgotPassword() {
                   className="w-full"
                   disabled={loading}
                 >
+                  {loading && (
+                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   {t("sendEmail")}
                 </Button>
               </div>

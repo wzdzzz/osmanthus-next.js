@@ -77,7 +77,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       //     Authorization: `Bearer ${token.sub}`,
       //   },
       // }).then((res) => res.json())
-      console.log(token, "tt")
       return {
         // ...user,
         ...token,

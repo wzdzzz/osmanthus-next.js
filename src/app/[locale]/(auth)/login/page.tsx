@@ -1,7 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { ReloadIcon } from "@radix-ui/react-icons"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -21,6 +23,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { GiteeIcon } from "@/components/icons/gitee-icon"
 import { GithubIcon } from "@/components/icons/github-icon"
 import { GoogleIcon } from "@/components/icons/google-icon"
+import PasswordInput from "@/components/password-input"
 import {
   loginWithCredentials,
   loginWithGitee,
@@ -45,6 +48,7 @@ export type loginFormSchemaType = z.infer<typeof loginFormSchema>
 export default function LoginPage() {
   const { toast } = useToast()
   const t = useTranslations("login")
+  const [loading, setLoading] = useState(false)
 
   const form = useForm<loginFormSchemaType>({
     resolver: zodResolver(loginFormSchemaFn(t)),
@@ -55,8 +59,9 @@ export default function LoginPage() {
   })
 
   async function onSubmit(values: loginFormSchemaType) {
+    setLoading(true)
     const res = await loginWithCredentials(values)
-
+    setLoading(false)
     if (res?.error) {
       toast({
         title: t("loginFailed"),
@@ -109,8 +114,7 @@ export default function LoginPage() {
                       </Link>
                     </FormLabel>
                     <FormControl>
-                      <Input
-                        type="password"
+                      <PasswordInput
                         {...field}
                         placeholder={t("passwordPlaceholder")}
                       />
@@ -119,7 +123,15 @@ export default function LoginPage() {
                 )}
               />
               <div className="mt-5 flex justify-between">
-                <Button size="lg" className="w-full" type="submit">
+                <Button
+                  size="lg"
+                  className="w-full"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading && (
+                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   {t("submit")}
                 </Button>
               </div>

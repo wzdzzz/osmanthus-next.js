@@ -42,6 +42,7 @@ const authPages = [
   "/register/result",
   "/activate",
   "/forgot-password",
+  "/forgot-password/reset-password",
 ]
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {

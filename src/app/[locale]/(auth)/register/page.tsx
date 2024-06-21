@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
+import PasswordInput from "@/components/password-input"
 
 import { register, sendActiveEmail } from "./action"
 
@@ -68,9 +69,9 @@ export default function RegisterPage() {
         subject: t("activateEmailSubject"),
         namespace: "activateEmail",
       })
+      setLoading(false)
     } catch (err) {
       setLoading(false)
-      console.log(err)
       toast({
         title: t("registerFailed"),
         variant: "destructive",
@@ -123,8 +124,7 @@ export default function RegisterPage() {
                   <FormItem className="mt-5">
                     <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
-                      <Input
-                        type="password"
+                      <PasswordInput
                         {...field}
                         placeholder={t("passwordPlaceholder")}
                       />

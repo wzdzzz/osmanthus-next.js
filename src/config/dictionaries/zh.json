@@ -79,6 +79,21 @@
     "emailButton": "点击这里重置密码",
     "emailFooter": "本网络服务永远不会给你发电子邮件，要求你披露或验证你的密码、信用卡或银行账号。如果您有任何问题，请联系我们。"
   },
+  "resetPassword": {
+    "resetPassword": "重置密码",
+    "resetPasswordDescription": "请输入新密码",
+    "newPassword": "新密码",
+    "resetPasswordSuccess": "重置密码成功",
+    "resetPasswordSuccessDescription": "重置密码成功，请登录",
+    "resetPasswordFailed": "重置密码失败",
+    "resetPasswordFailedDescription": "重置密码失败，请重试",
+    "passwordPlaceholder": "请输入新密码",
+    "submit": "提交",
+    "invalidPassword": "密码不能为空",
+    "userNotExist": "用户不存在",
+    "activateLinkExpires": "当前链接已失效",
+    "toLogin": "去登录"
+  },
   "home": {
     "hello": "你好，",
     "description": "这里是首页。"

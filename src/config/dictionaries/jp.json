@@ -79,6 +79,21 @@
     "emailButton": "ここをクリックしてパスワードをリセット",
     "emailFooter": "当社はパスワード、クレジットカード、銀行口座などの情報を要求するメールを送信することはありません。ご不明な点がございましたら、お気軽にお問い合わせください。"
   },
+  "resetPassword": {
+    "resetPassword": "パスワードの再設定",
+    "resetPasswordDescription": "新しいパスワードを入力してください。",
+    "newPassword": "新しいパスワード",
+    "resetPasswordSuccess": "パスワードの再設定が成功しました",
+    "resetPasswordSuccessDescription": "パスワードの再設定が成功しました。新しいパスワードでログインしてください。",
+    "resetPasswordFailed": "パスワードの再設定に失敗しました",
+    "resetPasswordFailedDescription": "パスワードの再設定に失敗しました。再度試してください。",
+    "passwordPlaceholder": "パスワードを入力してください",
+    "submit": "再設定",
+    "invalidPassword": "パスワードが必要です",
+    "userNotExist": "ユーザーが存在しません",
+    "activateLinkExpires": "パスワードのリセットリンクが期限切れです。パスワードリセットメールを再送してください。",
+    "toLogin": "ログインに戻る"
+  },
   "home": {
     "hello": "こんにちは、",
     "description": "ここはホームページです。"

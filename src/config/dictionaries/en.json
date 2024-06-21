@@ -79,7 +79,21 @@
     "emailButton": "Click here to reset your password",
     "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us"
   },
-
+  "resetPassword": {
+    "resetPassword": "Reset Password",
+    "resetPasswordDescription": "Please enter your new password.",
+    "newPassword": "Password",
+    "resetPasswordSuccess": "Reset password success",
+    "resetPasswordSuccessDescription": "Reset password success, please login with your new password",
+    "resetPasswordFailed": "Reset password failed",
+    "resetPasswordFailedDescription": "Reset password failed, please try again",
+    "passwordPlaceholder": "Please enter your password",
+    "submit": "Reset",
+    "invalidPassword": "Password is required",
+    "userNotExist": "User does not exist",
+    "activateLinkExpires": "The reset password link has expired, please resend the reset password email",
+    "toLogin": "Back to login"
+  },
   "home": {
     "hello": "Hello,",
     "description": "This is Home Page."

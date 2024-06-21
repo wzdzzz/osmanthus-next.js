@@ -37,7 +37,7 @@ export const sendPasswordResetEmail = async ({
       },
     })
 
-    const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/activate?token=${token}`
+    const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/forgot-password/reset-password?token=${token}`
 
     const emailHtml = render(
       await Email({ baseUrl, namespace: "forgotPasswordEmail" })
@@ -49,7 +49,6 @@ export const sendPasswordResetEmail = async ({
       html: emailHtml,
     })
   } catch (err) {
-    console.log(err, "rrr")
     return {
       error: t("sendFailed"),
     }
