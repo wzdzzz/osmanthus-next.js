@@ -1,6 +1,6 @@
-# Web-Next.js
+# osmanthus
 
-Web-Next.js is a template based on Next.js 14, providing a complete solution for developing projects with Next.js.
+osmanthus is a template based on Next.js 14, providing a complete solution for developing projects with Next.js.
 
 [中文文档](./README_zh.md)
 
@@ -18,7 +18,7 @@ Web-Next.js is a template based on Next.js 14, providing a complete solution for
 
 ## Getting Started
 
-Follow these steps to get started with Web-Next.js.
+Follow these steps to get started with osmanthus.
 
 ### Installation
 
@@ -26,7 +26,7 @@ Follow these steps to get started with Web-Next.js.
 
 ```bash
 git clone https://github.com/wzdzzz/web-nextjs
-cd web-next.js
+cd osmanthus
 ```
 
 2. **Install dependencies**:

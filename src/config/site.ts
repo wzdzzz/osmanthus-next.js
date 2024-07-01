@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Web Nextjs",
+  name: "osmanthus",
   url: "http://localhost:3000",
   ogImage: "",
-  description: "Web Nextjs",
+  description: "osmanthus",
   links: {
     github: "https://github.com/wzdzzz/web-nextjs",
   },

@@ -1,6 +1,6 @@
-# Web-Next.js
+# osmanthus
 
-Web-Next.js 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项目提供了完整的解决方案。
+osmanthus 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项目提供了完整的解决方案。
 
 [English Docs](./README.md)
 
@@ -16,7 +16,7 @@ Web-Next.js 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项�
 
 ## 开始使用
 
-按照以下步骤开始使用 Web-Next.js。
+按照以下步骤开始使用 osmanthus。
 
 ### 安装
 
@@ -24,7 +24,7 @@ Web-Next.js 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项�
 
 ```bash
 git clone https://github.com/wzdzzz/web-nextjs
-cd web-next.js
+cd osmanthus
 ```
 
 2. **安装依赖**:

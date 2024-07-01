@@ -24,11 +24,11 @@ export default async function Email({ baseUrl, namespace }: EmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>Web NextJS</Preview>
+      <Preview>osmanthus</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={coverSection}>
-            <Section style={imageSection}>Web NextJS</Section>
+            <Section style={imageSection}>osmanthus</Section>
             <Section style={upperSection}>
               <Heading style={h1}>{t("emailTitle")}</Heading>
               <Text style={mainText}>
