@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "桂花",
+    "description": "桂花 是 Next.js 和 Tailwind CSS 构建网站的模板"
+  },
   "login": {
     "emailPlaceholder": "请输入邮箱",
     "passwordPlaceholder": "请输入密码",

@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
 import { Toaster } from "@/components/ui/toaster"
@@ -6,38 +6,19 @@ import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
 
 import { NextUIProvider } from "@nextui-org/react"
+import { getTranslations } from "next-intl/server"
 
-import { siteConfig } from "@/config/site"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata & Viewport = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
-  keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
-    "Next.js template",
-  ],
-  authors: [
-    {
-      name: "this",
-    },
-  ],
-  creator: "this",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  minimumScale: 1,
-  userScalable: false,
+export const generateMetadata = async (): Promise<Metadata> => {
+  const t = await getTranslations("metadata")
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
 export default function RootLayout({

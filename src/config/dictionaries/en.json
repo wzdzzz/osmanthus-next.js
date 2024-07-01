@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "osmanthus",
+    "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS"
+  },
   "login": {
     "emailPlaceholder": "Please enter your email address",
     "passwordPlaceholder": "Please enter your password",
