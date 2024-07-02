@@ -32,7 +32,7 @@ function isPublicPage(request: NextRequest): boolean {
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale: "en",
-  localePrefix: "never",
+  localePrefix: "never" || "always",
 })
 
 const authPages = [
