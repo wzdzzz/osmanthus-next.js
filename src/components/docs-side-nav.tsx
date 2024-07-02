@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
@@ -28,7 +29,7 @@ function DocsSideNavItem({ items, pathname }) {
     <div className="grid grid-flow-row auto-rows-max text-sm">
       {items.map((item, index) =>
         item.href && !item.disabled ? (
-          <a
+          <Link
             key={index}
             href={item.href}
             className={cn(
@@ -45,7 +46,7 @@ function DocsSideNavItem({ items, pathname }) {
             {item.label && (
               <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline"></span>
             )}
-          </a>
+          </Link>
         ) : (
           <div
             key={index}

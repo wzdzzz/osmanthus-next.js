@@ -23,6 +23,10 @@ export const siteConfig = {
       href: "/examples",
       text: "Examples",
     },
+    {
+      href: "/proxy",
+      text: "Proxy",
+    },
   ],
   docsNavList: [
     {
