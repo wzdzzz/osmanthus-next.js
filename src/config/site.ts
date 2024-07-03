@@ -30,23 +30,19 @@ export const siteConfig = {
   ],
   docsNavList: [
     {
-      title: "Getting Started",
+      title: "gettingStarted",
       items: [
         {
-          title: "Introduction",
+          title: "introduction",
           href: "/docs",
           items: [],
         },
         {
-          title: "Installation",
+          title: "installation",
           href: "/docs/installation",
           items: [],
         },
       ],
-    },
-    {
-      title: "Components",
-      href: "/docs/components/accordion",
     },
   ],
 }

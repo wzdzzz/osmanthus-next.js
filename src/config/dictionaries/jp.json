@@ -108,5 +108,10 @@
     "profile": "プロフィール",
     "setting": "設定",
     "logout": "ログアウト"
+  },
+  "docsSideNav": {
+    "gettingStarted": "はじめに",
+    "introduction": "はじめまして",
+    "installation": "インストール"
   }
 }

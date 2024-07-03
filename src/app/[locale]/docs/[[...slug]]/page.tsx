@@ -3,23 +3,14 @@ import { join } from "node:path"
 import { useMDXComponents } from "@/mdx-components"
 import { MDXRemote } from "next-mdx-remote/rsc"
 
+const defaultPath = join(process.cwd(), "src/doc")
+
 const Page = async ({ params }) => {
   const { locale, slug } = params
-  let postDir = join(
-    process.cwd(),
-    "src/doc",
-    locale,
-    slug?.join("/") || "",
-    "page.mdx"
-  )
+  const realSlug = slug?.join("/") || ""
+  let postDir = join(defaultPath, locale, realSlug, "page.mdx")
   if (!fs.existsSync(postDir)) {
-    postDir = join(
-      process.cwd(),
-      "src/doc",
-      "en",
-      slug?.join("/") || "",
-      "page.mdx"
-    )
+    postDir = join(defaultPath, "en", realSlug, "page.mdx")
   }
   const fileContents = fs.readFileSync(postDir, "utf8")
 

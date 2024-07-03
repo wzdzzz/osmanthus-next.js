@@ -108,5 +108,10 @@
     "profile": "个人信息",
     "setting": "个人设置",
     "logout": "退出"
+  },
+  "docsSideNav": {
+    "gettingStarted": "开始使用",
+    "introduction": "介绍",
+    "installation": "安装"
   }
 }

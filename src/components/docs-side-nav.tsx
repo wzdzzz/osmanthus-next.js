@@ -2,18 +2,20 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 import { cn } from "@/lib/utils"
 
 export default function DocsSideNav({ items }) {
   const pathname = usePathname()
+  const t = useTranslations("docsSideNav")
 
   return items?.length ? (
     <div className="w-full">
       {items.map((item, index) => (
         <div key={index} className="pb-4">
           <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
-            {item.title}
+            {t(item.title)}
           </h4>
           {item?.items?.length && (
             <DocsSideNavItem items={item.items} pathname={pathname} />
@@ -25,6 +27,7 @@ export default function DocsSideNav({ items }) {
 }
 
 function DocsSideNavItem({ items, pathname }) {
+  const t = useTranslations("docsSideNav")
   return (
     <div className="grid grid-flow-row auto-rows-max text-sm">
       {items.map((item, index) =>
@@ -42,7 +45,7 @@ function DocsSideNavItem({ items, pathname }) {
             target={item.external ? "_blank" : ""}
             rel={item.external ? "noreferrer" : ""}
           >
-            {item.title}
+            {t(item.title)}
             {item.label && (
               <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline"></span>
             )}
@@ -52,7 +55,7 @@ function DocsSideNavItem({ items, pathname }) {
             key={index}
             className="flex w-full cursor-not-allowed items-center rounded-md border border-transparent px-2 py-1 text-muted-foreground opacity-60"
           >
-            {item.title}
+            {t(item.title)}
             {item.label && (
               <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline"></span>
             )}
