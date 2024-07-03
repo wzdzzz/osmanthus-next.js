@@ -7,6 +7,7 @@ export const env = createEnv({
     MAIL_PASS: z.string(),
     MAIL_HOST: z.string(),
     MAIL_PORT: z.string(),
+    GOOGLE_GAID: z.string(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string(),
@@ -16,6 +17,7 @@ export const env = createEnv({
     MAIL_USER: process.env.MAIL_USER,
     MAIL_PASS: process.env.MAIL_PASS,
     MAIL_HOST: process.env.MAIL_HOST,
-    MAIL_PORT: process.env.MAIL_PORT
+    MAIL_PORT: process.env.MAIL_PORT,
+    GOOGLE_GAID: process.env.GOOGLE_GAID,
   },
 });

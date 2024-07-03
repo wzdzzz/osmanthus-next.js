@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "next dev",
     "build:test": "cross-env NODE_ENV=test next build",
-    "build": "next build",
+    "build": "yarn run generate && next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "prettier": "prettier -c --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
-    "generate": "prisma generate"
+    "generate": "prisma generate",
+    "studio": "prisma studio",
+    "db-push": "prisma db push"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
@@ -27,6 +29,7 @@
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.4",
+    "@next/third-parties": "^14.2.4",
     "@nextui-org/react": "^2.4.1",
     "@prisma/client": "5.14.0",
     "@radix-ui/react-accordion": "^1.1.2",
