@@ -61,6 +61,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
       <a
+        target="_blank"
         className={cn("font-medium underline underline-offset-4", className)}
         {...props}
       />
