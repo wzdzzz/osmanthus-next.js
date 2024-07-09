@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "title": "osmanthus",
+    "description": "Osmanthus は Next.js と Tailwind CSS を使用してウェブサイトを構築するためのテンプレートです"
+  },
+  "siteHeader": {
+    "login": "ログイン",
+    "signUp": "登録"
+  },
+  "login": {
+    "emailPlaceholder": "メールアドレスを入力してください",
+    "passwordPlaceholder": "パスワードを入力してください",
+    "invalidEmail": "メールアドレスが正しくありません",
+    "invalidPassword": "パスワードを入力してください",
+    "loginFailed": "ログインに失敗しました",
+    "loginSuccess": "ログイン成功",
+    "loginFailedMsg": "メールアドレスとパスワードを再度確認してください",
+    "title": "ログイン",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "submit": "ログイン",
+    "noAccount": "アカウントをお持ちでない方はこちら",
+    "signUp": "登録する",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "loginErrMsg": "ログインに失敗しました。メールアドレスとパスワードを正しく入力してください",
+    "noActivate": "アカウントはまだアクティベートされていません。メールでアクティベートしてください"
+  },
+  "register": {
+    "invalidUsername": "ユーザー名を入力してください",
+    "invalidEmail": "メールアドレスが正しくありません",
+    "invalidPassword": "パスワードを入力してください",
+    "registerFailed": "登録に失敗しました",
+    "registerSuccess": "登録成功",
+    "registerSuccessDescription": "登録が完了しました。メールでアカウントをアクティベートしてください",
+    "register": "登録",
+    "username": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "submit": "登録",
+    "hasAccount": "アカウントをお持ちの方はこちら",
+    "backLogin": "ログインに戻る",
+    "emailPlaceholder": "メールアドレスを入力してください",
+    "passwordPlaceholder": "パスワードを入力してください",
+    "usernamePlaceholder": "ユーザー名を入力してください",
+    "emailExist": "メールアドレスは既に登録されています",
+    "activateEmailSubject": "アカウントのアクティベーション",
+    "registerSuccessMsg": "登録が成功しました。メールでアカウントをアクティベートしてください",
+    "hasActivate": "アカウントは既にアクティベートされています",
+    "toLogin": "ログインへ"
+  },
+  "activate": {
+    "errorMsg": "アクティベーションに失敗しました。管理者に連絡してください",
+    "activateMsg": "アクティベーション中です。しばらくお待ちください...",
+    "activateSuccess": "アクティベーション成功",
+    "activateLogin": "ログインに戻る",
+    "activateLinkOverdue": "アクティベーションリンクが期限切れです",
+    "activateEmailSend": "アクティベーションメールを再送します！",
+    "activateEmailSendSuccess": "アクティベーションメールを再送信しました。ご確認ください",
+    "activateEmailSendFailed": "アクティベーションメールの送信に失敗しました",
+    "activateLinkExpires": "現在のリンクは無効です",
+    "activateEmailSubject": "アカウントのアクティベーション"
+  },
+  "activateEmail": {
+    "emailTitle": "アカウントのアクティベーション",
+    "emailContent1": "WebNextJSをご利用いただきありがとうございます。",
+    "emailContent2": "アカウントの作成を完了させるために、以下のボタンをクリックしてアカウントをアクティベートしてください。アカウントをアクティベートしたくない場合は、このメッセージを無視してください。",
+    "emailButton": "ここをクリックしてアカウントをアクティベート",
+    "emailFooter": "当社はパスワード、クレジットカード、銀行口座などの情報を要求するメールを送信することはありません。ご不明な点がございましたら、お気軽にお問い合わせください。"
+  },
+  "forgotPassword": {
+    "forgotPasswordDescription": "メールアドレスを入力してください。パスワードのリセットメールを送信します",
+    "sendEmail": "メールを送信",
+    "sendSuccess": "メールを送信しました",
+    "sendFailed": "メールの送信に失敗しました",
+    "sendSuccessDescription": "パスワードのリセットメールを送信しました。ご確認ください",
+    "emailPlaceholder": "メールアドレスを入力してください",
+    "userNotExist": "ユーザーが存在しません",
+    "resetPassword": "パスワードをリセットする",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "email": "メールアドレス",
+    "invalidEmail": "メールアドレスが正しくありません"
+  },
+  "forgotPasswordEmail": {
+    "emailTitle": "パスワードのリセット",
+    "emailContent1": "WebNextJSをご利用いただきありがとうございます。",
+    "emailContent2": "パスワードのリセットを希望される場合は、以下のボタンをクリックしてください。パスワードのリセットを希望しない場合は、このメッセージを無視してください。",
+    "emailButton": "ここをクリックしてパスワードをリセット",
+    "emailFooter": "当社はパスワード、クレジットカード、銀行口座などの情報を要求するメールを送信することはありません。ご不明な点がございましたら、お気軽にお問い合わせください。"
+  },
+  "resetPassword": {
+    "resetPassword": "パスワードの再設定",
+    "resetPasswordDescription": "新しいパスワードを入力してください。",
+    "newPassword": "新しいパスワード",
+    "resetPasswordSuccess": "パスワードの再設定が成功しました",
+    "resetPasswordSuccessDescription": "パスワードの再設定が成功しました。新しいパスワードでログインしてください。",
+    "resetPasswordFailed": "パスワードの再設定に失敗しました",
+    "resetPasswordFailedDescription": "パスワードの再設定に失敗しました。再度試してください。",
+    "passwordPlaceholder": "パスワードを入力してください",
+    "submit": "再設定",
+    "invalidPassword": "パスワードが必要です",
+    "userNotExist": "ユーザーが存在しません",
+    "activateLinkExpires": "パスワードのリセットリンクが期限切れです。パスワードリセットメールを再送してください。",
+    "toLogin": "ログインに戻る"
+  },
+  "home": {
+    "title": "ようこそ",
+    "description": "Osmanthus は Next.js と Tailwind CSS を使用してウェブサイトを構築するためのテンプレートです",
+    "start": "スタート"
+  },
+  "userMenu": {
+    "login": "ログイン",
+    "register": "登録",
+    "profile": "プロフィール",
+    "setting": "設定",
+    "logout": "ログアウト"
+  },
+  "docsSideNav": {
+    "gettingStarted": "はじめに",
+    "introduction": "はじめまして",
+    "installation": "インストール"
+  }
+}

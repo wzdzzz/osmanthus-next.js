@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "title": "osmanthus",
+    "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS"
+  },
+  "siteHeader": {
+    "login": "Login",
+    "signUp": "Sign Up"
+  },
+  "login": {
+    "emailPlaceholder": "Please enter your email address",
+    "passwordPlaceholder": "Please enter your password",
+    "title": "Login",
+    "loginFailed": "Login failed",
+    "loginSuccess": "Login success",
+    "loginFailedMsg": "Login failed, Please check your email and password",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "forgotPassword": "Forgot your password?",
+    "invalidEmail": "Email is required",
+    "invalidPassword": "Password is required",
+    "loginErrMsg": "Please enter your email and password",
+    "noActivate": "Account not activated, please check your email to activate your account"
+  },
+  "register": {
+    "invalidUsername": "Username is required",
+    "invalidEmail": "Email is required",
+    "invalidPassword": "Password is required",
+    "registerFailed": "Register failed",
+    "registerSuccess": "Register success",
+    "registerSuccessDescription": "Register success, please check your email to activate your account",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Register",
+    "hasAccount": "Already have an account?",
+    "backLogin": "Back to login",
+    "emailPlaceholder": "Please enter your email address",
+    "passwordPlaceholder": "Please enter your password",
+    "usernamePlaceholder": "Please enter your username",
+    "emailExist": "Email already exists",
+    "activateEmailSubject": "Activate your account",
+    "registerSuccessMsg": "Register success, please check your email to activate your account",
+    "hasActivate": "Account has been activated, ",
+    "toLogin": "please login"
+  },
+  "activate": {
+    "errorMsg": "error, please contact administrator",
+    "activateMsg": "Activating, please wait...",
+    "activateSuccess": "Activate success",
+    "activateLogin": "Please Login",
+    "activateLinkOverdue": "Activate link overdue",
+    "activateEmailSend": "Resend the activation email !",
+    "activateEmailSendSuccess": "Activation email sent successfully",
+    "activateEmailSendFailed": "Failed to send activation email",
+    "activateLinkExpires": "The activation link has expired, please resend the activation email",
+    "activateEmailSubject": "Activate your account"
+  },
+  "activateEmail": {
+    "emailTitle": "Activate your account",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "Create a process. We want to make sure it's really you. Please click the button below to activate. If you don't want to activate your account, you can ignore this message.",
+    "emailButton": "Click here to activate your account",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us."
+  },
+  "forgotPassword": {
+    "forgotPasswordDescription": "Please enter your email address, we will send you a link to reset your password.",
+    "sendEmail": "Send Email",
+    "sendSuccess": "Send success",
+    "sendFailed": "Send failed",
+    "sendSuccessDescription": "We have sent an email to your email address, please check your email.",
+    "emailPlaceholder": "Please enter your email address",
+    "userNotExist": "User does not exist",
+    "resetPassword": "Reset Password",
+    "forgotPassword": "Forgot your password ?",
+    "email": "Email",
+    "invalidEmail": "Email is required"
+  },
+  "forgotPasswordEmail": {
+    "emailTitle": "Reset your password",
+    "emailContent1": "Thank you for using WebNextJS.",
+    "emailContent2": "You have requested to reset your password. Please click the button below to reset your password. If you don't want to reset your password, you can ignore this message.",
+    "emailButton": "Click here to reset your password",
+    "emailFooter": " The Web Service will never send you an email asking you to disclose or verify your password, credit card or bank account number. If you have any questions, please contact us"
+  },
+  "resetPassword": {
+    "resetPassword": "Reset Password",
+    "resetPasswordDescription": "Please enter your new password.",
+    "newPassword": "Password",
+    "resetPasswordSuccess": "Reset password success",
+    "resetPasswordSuccessDescription": "Reset password success, please login with your new password",
+    "resetPasswordFailed": "Reset password failed",
+    "resetPasswordFailedDescription": "Reset password failed, please try again",
+    "passwordPlaceholder": "Please enter your password",
+    "submit": "Reset",
+    "invalidPassword": "Password is required",
+    "userNotExist": "User does not exist",
+    "activateLinkExpires": "The reset password link has expired, please resend the reset password email",
+    "toLogin": "Back to login"
+  },
+  "home": {
+    "title": "Welcome",
+    "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS",
+    "start": "Start"
+  },
+  "userMenu": {
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "setting": "Setting",
+    "logout": "Logout"
+  },
+  "docsSideNav": {
+    "gettingStarted": "Getting Started",
+    "introduction": "Introduction",
+    "installation": "Installation"
+  }
+}
