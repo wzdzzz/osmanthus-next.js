@@ -1,1 +1,56 @@
-# 安装
+#インストール
+
+1. **リポジトリをクローン**:
+
+```bash
+git clone https://github.com/wzdzzz/osmanthus-next.js
+cd osmanthus
+```
+
+2. **依存関係をインストール**:
+
+```bash
+yarn install
+```
+
+3. **環境変数を設定**:
+
+```bash
+cp .env.example .env.local
+```
+
+4. **必要なファイルを生成**:
+
+```bash
+yarn run generate
+```
+
+5. **開発サーバーを実行**:
+
+```bash
+yarn run dev
+```
+
+プロジェクトは、今 [http://localhost:3000](http://localhost:3000/) で実行されているはずです。
+
+# 設定
+
+## 認証
+
+このテンプレートは認証には **Next-Auth** を使用します。src/config/auth.config.ts で認証プロバイダーを設定してください。
+
+## 多言語サポート
+
+多言語サポートには **Next-Intl** を使用します。src/config/dictionaries ディレクトリに言語ファイルを追加してください。
+
+## テーマ設定
+
+**Next-Themes** を使用して src/app/globals.css でテーマをカスタマイズします。
+
+## ステート管理
+
+グローバルステートは **Zustand** によって管理されます。src/store ディレクトリでストアを定義してください。
+
+## データベース統合
+
+データベース統合には **Prisma** を使用します。prisma/schema.prisma でデータベース接続を設定してください。

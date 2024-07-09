@@ -4,7 +4,7 @@ export const siteConfig = {
   ogImage: "",
   description: "osmanthus",
   links: {
-    github: "https://github.com/wzdzzz/web-nextjs",
+    github: "https://github.com/wzdzzz/osmanthus-next.js",
   },
   navList: [
     {

@@ -23,7 +23,7 @@ osmanthus 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项目�
 1. **克隆仓库**:
 
 ```bash
-git clone https://github.com/wzdzzz/web-nextjs
+git clone https://github.com/wzdzzz/osmanthus-next.js
 cd osmanthus
 ```
 
