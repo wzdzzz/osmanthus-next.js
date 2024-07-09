@@ -4,6 +4,8 @@ osmanthus 是一款基于 Next.js 14 的模板，为使用 Next.js 开发项目�
 
 [English Docs](./README.md)
 
+预览: [https://geekai.asia](https://geekai.asia)
+
 ## 功能特性
 
 - **Next.js 14**: 使用最新的 App Router 目录结构。

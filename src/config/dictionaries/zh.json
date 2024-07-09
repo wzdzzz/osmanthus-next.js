@@ -5,7 +5,12 @@
   },
   "siteHeader": {
     "login": "登录",
-    "signUp": "注册"
+    "signUp": "注册",
+    "light": "亮色模式",
+    "dark": "黑暗模式",
+    "system": "系统模式",
+    "docs": "文档",
+    "dashboard": "控制台"
   },
   "login": {
     "emailPlaceholder": "请输入邮箱",

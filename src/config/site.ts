@@ -9,11 +9,11 @@ export const siteConfig = {
   navList: [
     {
       href: "/docs",
-      text: "Docs",
+      title: "docs",
     },
     {
       href: "/dashboard",
-      text: "Dashboard",
+      title: "dashboard",
     },
   ],
   docsNavList: [
