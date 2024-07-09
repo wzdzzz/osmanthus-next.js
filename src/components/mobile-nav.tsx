@@ -3,6 +3,7 @@
 import React from "react"
 import Link, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -13,6 +14,7 @@ import { MenuIcon } from "@/components/icons/menu-icon"
 
 export default function MobileNav() {
   const [open, setOpen] = React.useState(false)
+  const t = useTranslations("siteHeader")
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -44,7 +46,7 @@ export default function MobileNav() {
                 className="flex items-center space-x-2"
                 onOpenChange={setOpen}
               >
-                <span>{navItem.text}</span>
+                <span>{t(navItem.title)}</span>
               </MobileLink>
             ))}
           </div>
