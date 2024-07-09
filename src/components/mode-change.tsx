@@ -1,6 +1,7 @@
 "use client"
 
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,7 @@ import {
 
 export default function ModeChange() {
   const { setTheme } = useTheme()
+  const t = useTranslations("siteHeader")
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,13 +27,13 @@ export default function ModeChange() {
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          {t("light")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {t("dark")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {t("system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

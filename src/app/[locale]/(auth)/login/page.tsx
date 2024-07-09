@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ReloadIcon } from "@radix-ui/react-icons"
+import { set } from "date-fns"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -60,20 +61,24 @@ export default function LoginPage() {
 
   async function onSubmit(values: loginFormSchemaType) {
     setLoading(true)
-    const res = await loginWithCredentials(values)
-    setLoading(false)
-    if (res?.error) {
-      toast({
-        title: t("loginFailed"),
-        variant: "destructive",
-        description: res?.error || t("loginFailedMsg"),
-      })
-      return true
-    } else {
-      toast({
-        title: t("loginSuccess"),
-        duration: 5000,
-      })
+    try {
+      const res = await loginWithCredentials(values)
+      setLoading(false)
+      if (res?.error) {
+        toast({
+          title: t("loginFailed"),
+          variant: "destructive",
+          description: res?.error || t("loginFailedMsg"),
+        })
+        return true
+      } else {
+        toast({
+          title: t("loginSuccess"),
+          duration: 5000,
+        })
+      }
+    } catch (err) {
+      setLoading(false)
     }
   }
 

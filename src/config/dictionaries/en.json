@@ -5,7 +5,12 @@
   },
   "siteHeader": {
     "login": "Login",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "docs": "Docs",
+    "dashboard": "Dashboard"
   },
   "login": {
     "emailPlaceholder": "Please enter your email address",

@@ -4,6 +4,8 @@ osmanthus is a template based on Next.js 14, providing a complete solution for d
 
 [中文文档](./README_zh.md)
 
+Demo: [https://geekai.asia](https://geekai.asia)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wzdzzz/osmanthus-next.js)
 
 ## Features

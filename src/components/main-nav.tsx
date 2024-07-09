@@ -2,12 +2,14 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 export default function MainNav() {
   const pathname = usePathname()
+  const t = useTranslations("siteHeader")
 
   return (
     <div className="mr-4 hidden md:flex">
@@ -29,7 +31,7 @@ export default function MainNav() {
                 : "text-foreground/60"
             )}
           >
-            {navItem.text}
+            {t(navItem.title)}
           </Link>
         ))}
       </nav>

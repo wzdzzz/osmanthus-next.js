@@ -5,7 +5,12 @@
   },
   "siteHeader": {
     "login": "ログイン",
-    "signUp": "登録"
+    "signUp": "登録",
+    "light": "こうしょく",
+    "dark": "暗黒です",
+    "system": "システム",
+    "docs": "Docs",
+    "dashboard": "Dashboard"
   },
   "login": {
     "emailPlaceholder": "メールアドレスを入力してください",
