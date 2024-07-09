@@ -1,7 +1,11 @@
 {
   "metadata": {
-    "title": "桂花",
-    "description": "桂花 是 Next.js 和 Tailwind CSS 构建网站的模板"
+    "title": "osmanthus",
+    "description": "Osmanthus は Next.js と Tailwind CSS を使用してウェブサイトを構築するためのテンプレートです"
+  },
+  "siteHeader": {
+    "login": "ログイン",
+    "signUp": "登録"
   },
   "login": {
     "emailPlaceholder": "メールアドレスを入力してください",
@@ -99,8 +103,9 @@
     "toLogin": "ログインに戻る"
   },
   "home": {
-    "hello": "こんにちは、",
-    "description": "ここはホームページです。"
+    "title": "ようこそ",
+    "description": "Osmanthus は Next.js と Tailwind CSS を使用してウェブサイトを構築するためのテンプレートです",
+    "start": "スタート"
   },
   "userMenu": {
     "login": "ログイン",

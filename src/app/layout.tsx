@@ -1,4 +1,3 @@
-// import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
@@ -6,23 +5,25 @@ import { Toaster } from "@/components/ui/toaster"
 
 import "./globals.css"
 
+import { headers } from "next/headers"
 import { env } from "@/env.mjs"
 import { NextUIProvider } from "@nextui-org/react"
-
-// import { getTranslations } from "next-intl/server"
+import { getTranslations } from "next-intl/server"
 
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-// export const generateMetadata = async (): Promise<Metadata> => {
-//   const t = await getTranslations("metadata")
-//
-//   return {
-//     title: t("title"),
-//     description: t("description"),
-//   }
-// }
+export async function generateMetadata() {
+  const header = headers()
+  const locale = header.get("x-next-intl-locale")
+  const t = await getTranslations({ locale, namespace: "metadata" })
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
+}
 
 export default function RootLayout({
   children,

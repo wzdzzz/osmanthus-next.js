@@ -15,18 +15,6 @@ export const siteConfig = {
       href: "/dashboard",
       text: "Dashboard",
     },
-    {
-      href: "/themes",
-      text: "Themes",
-    },
-    {
-      href: "/examples",
-      text: "Examples",
-    },
-    {
-      href: "/proxy",
-      text: "Proxy",
-    },
   ],
   docsNavList: [
     {

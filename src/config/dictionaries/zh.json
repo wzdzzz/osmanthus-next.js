@@ -1,7 +1,11 @@
 {
   "metadata": {
-    "title": "桂花",
-    "description": "桂花 是 Next.js 和 Tailwind CSS 构建网站的模板"
+    "title": "osmanthus",
+    "description": "osmanthus 是 Next.js 和 Tailwind CSS 构建网站的模板"
+  },
+  "siteHeader": {
+    "login": "登录",
+    "signUp": "注册"
   },
   "login": {
     "emailPlaceholder": "请输入邮箱",
@@ -99,8 +103,9 @@
     "toLogin": "去登录"
   },
   "home": {
-    "hello": "你好，",
-    "description": "这里是首页。"
+    "title": "欢迎",
+    "description": "osmanthus 是 Next.js 和 Tailwind CSS 构建网站的模板",
+    "start": "开始"
   },
   "userMenu": {
     "login": "登录",

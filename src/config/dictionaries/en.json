@@ -3,6 +3,10 @@
     "title": "osmanthus",
     "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS"
   },
+  "siteHeader": {
+    "login": "Login",
+    "signUp": "Sign Up"
+  },
   "login": {
     "emailPlaceholder": "Please enter your email address",
     "passwordPlaceholder": "Please enter your password",
@@ -99,8 +103,9 @@
     "toLogin": "Back to login"
   },
   "home": {
-    "hello": "Hello,",
-    "description": "This is Home Page."
+    "title": "Welcome",
+    "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS",
+    "start": "Start"
   },
   "userMenu": {
     "login": "Login",

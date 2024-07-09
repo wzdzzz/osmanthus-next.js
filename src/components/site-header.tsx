@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useTransition } from "react"
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 
 import { auth } from "@/config/auth.config"
 import { siteConfig } from "@/config/site"
@@ -16,6 +17,7 @@ export default async function SiteHeader({
   isAuthPage?: boolean
 }) {
   const session = await auth()
+  const t = await getTranslations("siteHeader")
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
@@ -43,10 +45,10 @@ export default async function SiteHeader({
               ) : (
                 <>
                   <Button size="sm" color="primary" variant="ghost">
-                    <Link href={"/login"}>Login</Link>
+                    <Link href={"/login"}>{t("login")}</Link>
                   </Button>
                   <Button size="sm" color="primary">
-                    <Link href={"/register"}>Sign Up</Link>
+                    <Link href={"/register"}>{t("signUp")}</Link>
                   </Button>
                 </>
               )}
