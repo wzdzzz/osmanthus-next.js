@@ -15,7 +15,7 @@ const tags = Array.from({ length: 50 }).map(
 
 export default function Page() {
   return (
-    <div className="flex gap-4 p-4">
+    <div className="flex flex-col gap-4 p-4 md:flex-row">
       <Card className="flex-1">
         <CardHeader>
           <CardTitle>Dashboard</CardTitle>
@@ -26,7 +26,7 @@ export default function Page() {
         </CardContent>
       </Card>
 
-      <Card className="w-[400px]">
+      <Card className="md:w-[400px]">
         <CardHeader>
           <CardTitle>Total</CardTitle>
           <CardDescription>all count</CardDescription>
