@@ -1,7 +1,6 @@
-import { log } from "console"
 import Image from "next/image"
 
-import { getImages } from "../page"
+import { getImages } from "@/lib/get-iamges"
 
 export default async function Page({
   params,
