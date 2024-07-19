@@ -33,7 +33,7 @@ export function LocaleChange() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="h-8 w-8" variant="link">
+        <Button className="h-8 w-8 border-none" variant="link">
           {localesMap[locale]}
         </Button>
       </DropdownMenuTrigger>
