@@ -23,17 +23,12 @@ export default async function AvatarDropdownMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          className="relative h-8 w-8 rounded-full bg-gray-200"
-        >
-          <Avatar size="sm">
-            <AvatarImage
-              src={session?.user?.image || ""}
-              alt={session?.user?.name || ""}
-            ></AvatarImage>
-          </Avatar>
-        </Button>
+        <Avatar size="sm">
+          <AvatarImage
+            src={session?.user?.image || ""}
+            alt={session?.user?.name || ""}
+          ></AvatarImage>
+        </Avatar>
       </DropdownMenuTrigger>
 
       <DropdownMenuPortal>
@@ -55,11 +50,11 @@ export default async function AvatarDropdownMenu() {
                 {t("profile")}
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            {/* <DropdownMenuItem>
               <Link href={"/setting"} className="w-full">
                 {t("setting")}
               </Link>
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
           </DropdownMenuGroup>
 
           <DropdownMenuSeparator />
@@ -72,7 +67,7 @@ export default async function AvatarDropdownMenu() {
                 await signOut({ redirectTo: `/login` })
               }}
             >
-              <Button variant="ghost" className="w-full">
+              <Button variant="ghost" size={null} className="w-full">
                 <span> {t("logout")}</span>
               </Button>
             </form>

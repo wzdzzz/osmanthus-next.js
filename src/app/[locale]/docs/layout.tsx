@@ -18,7 +18,7 @@ export default function DocsLayout({
             <DocsSideNav items={siteConfig.docsNavList} />
           </ScrollArea>
         </aside>
-        <div className="flex-1">
+        <div className="w-full flex-1">
           <div>{children}</div>
         </div>
       </div>
