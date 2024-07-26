@@ -9,7 +9,12 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { MenuIcon } from "@/components/icons/menu-icon"
 
 export default function MobileNav() {
@@ -30,13 +35,15 @@ export default function MobileNav() {
       </SheetTrigger>
 
       <SheetContent side="left" className="pr-0">
-        <MobileLink
-          href="/"
-          className="flex items-center space-x-2"
-          onOpenChange={setOpen}
-        >
-          <span className="font-bold">{siteConfig.name}</span>
-        </MobileLink>
+        <SheetTitle>
+          <MobileLink
+            href="/"
+            className="flex items-center space-x-2"
+            onOpenChange={setOpen}
+          >
+            <span className="font-bold">{siteConfig.name}</span>
+          </MobileLink>
+        </SheetTitle>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="space-y-3">
             {siteConfig.navList.map((navItem) => (
