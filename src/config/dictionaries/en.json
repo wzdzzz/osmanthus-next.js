@@ -123,5 +123,24 @@
     "gettingStarted": "Getting Started",
     "introduction": "Introduction",
     "installation": "Installation"
+  },
+  "profile": {
+    "title": "Profile",
+    "profile": "Personal Information",
+    "changePassword": "Change Password",
+    "username": "Username",
+    "email": "Email",
+    "avatar": "Avatar",
+    "password": "Password",
+    "passwordNotMatch": "The passwords do not match",
+    "invalidPassword": "Password cannot be empty",
+    "changePasswordSuccess": "Password changed successfully",
+    "oldPassword": "Old Password",
+    "oldPasswordPlaceholder": "Please enter your old password",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Please enter your new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Please re-enter your new password",
+    "submit": "Submit"
   }
 }
