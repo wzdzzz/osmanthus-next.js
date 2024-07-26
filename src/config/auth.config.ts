@@ -45,7 +45,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             email,
           },
         })
-        if (!user) return null
+
+        if (!user || !user.email) {
+          return null
+        }
+
+        if (!user.emailVerified) {
+          return null
+        }
 
         const isSame =
           user.password && (await bcrypt.compare(password, user.password))

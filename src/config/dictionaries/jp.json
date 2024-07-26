@@ -9,8 +9,8 @@
     "light": "こうしょく",
     "dark": "暗黒です",
     "system": "システム",
-    "docs": "Docs",
-    "dashboard": "Dashboard"
+    "docs": "ドキュメント",
+    "dashboard": "ダッシュボード"
   },
   "login": {
     "emailPlaceholder": "メールアドレスを入力してください",
@@ -123,5 +123,24 @@
     "gettingStarted": "はじめに",
     "introduction": "はじめまして",
     "installation": "インストール"
+  },
+  "profile": {
+    "title": "プロフィール",
+    "profile": "個人情報",
+    "changePassword": "パスワードの変更",
+    "username": "ユーザー名",
+    "email": "メールアドレス",
+    "avatar": "アバター",
+    "password": "パスワード",
+    "passwordNotMatch": "入力されたパスワードが一致しません",
+    "invalidPassword": "パスワードを入力してください",
+    "changePasswordSuccess": "パスワードの変更が成功しました",
+    "oldPassword": "古いパスワード",
+    "oldPasswordPlaceholder": "古いパスワードを入力してください",
+    "newPassword": "新しいパスワード",
+    "newPasswordPlaceholder": "新しいパスワードを入力してください",
+    "confirmPassword": "パスワードの確認",
+    "confirmPasswordPlaceholder": "新しいパスワードを再入力してください",
+    "submit": "送信"
   }
 }

@@ -1,5 +1,6 @@
 "use server"
 
+import { log } from "console"
 import { AuthError } from "next-auth"
 import { getTranslations } from "next-intl/server"
 
@@ -30,22 +31,22 @@ export const loginWithCredentials = async (
 ) => {
   const t = await getTranslations("login")
   try {
-    const existUser = await primsa.user.findUnique({
-      where: {
-        email: credentials.email,
-      },
-    })
-    if (!existUser || !existUser.email) {
-      return {
-        error: t("loginErrMsg"),
-      }
-    }
+    // const existUser = await primsa.user.findUnique({
+    //   where: {
+    //     email: credentials.email,
+    //   },
+    // })
+    // if (!existUser || !existUser.email) {
+    //   return {
+    //     error: t("loginErrMsg"),
+    //   }
+    // }
 
-    if (!existUser.emailVerified) {
-      return {
-        error: t("noActivate"),
-      }
-    }
+    // if (!existUser.emailVerified) {
+    //   return {
+    //     error: t("noActivate"),
+    //   }
+    // }
 
     await signIn("credentials", {
       ...credentials,

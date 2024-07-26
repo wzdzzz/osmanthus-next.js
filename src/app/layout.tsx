@@ -10,6 +10,7 @@ import { env } from "@/env.mjs"
 import { NextUIProvider } from "@nextui-org/react"
 import { getTranslations } from "next-intl/server"
 
+import AuthProvider from "@/components/auth-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -34,8 +35,10 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <NextUIProvider>{children}</NextUIProvider>
-          <Toaster />
+          <AuthProvider>
+            <NextUIProvider>{children}</NextUIProvider>
+            <Toaster />
+          </AuthProvider>
         </ThemeProvider>
       </body>
 

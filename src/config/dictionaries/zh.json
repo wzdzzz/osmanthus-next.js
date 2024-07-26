@@ -123,5 +123,24 @@
     "gettingStarted": "开始使用",
     "introduction": "介绍",
     "installation": "安装"
+  },
+  "profile": {
+    "title": "个人主页",
+    "profile": "个人信息",
+    "changePassword": "修改密码",
+    "username": "用户名",
+    "email": "邮箱",
+    "avatar": "头像",
+    "password": "密码",
+    "passwordNotMatch": "两次输入秘密不一致",
+    "invalidPassword": "密码不能为空",
+    "changePasswordSuccess": "密码修改成功",
+    "oldPassword": "旧密码",
+    "oldPasswordPlaceholder": "请输入旧密码",
+    "newPassword": "新密码",
+    "newPasswordPlaceholder": "请输入新密码",
+    "confirmPassword": "确认密码",
+    "confirmPasswordPlaceholder": "请再次输入新密码",
+    "submit": "提交"
   }
 }
