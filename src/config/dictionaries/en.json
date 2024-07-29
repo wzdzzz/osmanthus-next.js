@@ -10,7 +10,12 @@
     "dark": "Dark",
     "system": "System",
     "docs": "Docs",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "introduction": "Introduction",
+    "installation": "Installation",
+    "profile": "Profile",
+    "personInformation": "Person Information",
+    "changePassword": "Change Password"
   },
   "login": {
     "emailPlaceholder": "Please enter your email address",

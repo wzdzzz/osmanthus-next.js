@@ -20,20 +20,22 @@ export default function MainNav() {
       </Link>
 
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
-        {siteConfig.navList.map((navItem, index) => (
-          <Link
-            key={index}
-            href={navItem.href}
-            className={cn(
-              "transition-colors hover:text-foreground/80",
-              pathname === navItem.href
-                ? "text-foreground"
-                : "text-foreground/60"
-            )}
-          >
-            {t(navItem.title)}
-          </Link>
-        ))}
+        {siteConfig.navList.map((navItem, index) =>
+          navItem.isMobileShow ? null : (
+            <Link
+              key={index}
+              href={navItem.href}
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === navItem.href
+                  ? "text-foreground"
+                  : "text-foreground/60"
+              )}
+            >
+              {t(navItem.title)}
+            </Link>
+          )
+        )}
       </nav>
     </div>
   )

@@ -12,7 +12,7 @@ export default async function Page() {
     <div className="flex flex-col gap-10">
       <div className="flex gap-4">
         <div className="w-20 text-right text-gray-400">{t("username")}:</div>
-        <div className="">{session?.user?.name || ""}</div>
+        <div className="w-10">{session?.user?.name || ""}</div>
       </div>
       <div className="flex gap-4">
         <div className="w-20 text-right text-gray-400">{t("email")}:</div>

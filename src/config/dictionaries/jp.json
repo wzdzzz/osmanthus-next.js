@@ -10,7 +10,12 @@
     "dark": "暗黒です",
     "system": "システム",
     "docs": "ドキュメント",
-    "dashboard": "ダッシュボード"
+    "dashboard": "ダッシュボード",
+    "introduction": "はじめに",
+    "installation": "インストール",
+    "profile": "プロフィール",
+    "personInformation": "個人情報",
+    "changePassword": "パスワードの変更"
   },
   "login": {
     "emailPlaceholder": "メールアドレスを入力してください",

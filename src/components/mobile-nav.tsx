@@ -47,14 +47,31 @@ export default function MobileNav() {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="space-y-3">
             {siteConfig.navList.map((navItem) => (
-              <MobileLink
-                key={navItem.href}
-                href={navItem.href}
-                className="flex items-center space-x-2"
-                onOpenChange={setOpen}
-              >
-                <span>{t(navItem.title)}</span>
-              </MobileLink>
+              <>
+                <MobileLink
+                  key={navItem.href}
+                  href={navItem.href}
+                  className="flex items-center space-x-2 font-semibold"
+                  onOpenChange={setOpen}
+                >
+                  <span>{t(navItem.title)}</span>
+                </MobileLink>
+
+                {navItem.children?.length && (
+                  <div className="space-y-2 pl-4 text-gray-500">
+                    {navItem.children.map((child) => (
+                      <MobileLink
+                        key={child.href}
+                        href={child.href}
+                        className="flex items-center space-x-2"
+                        onOpenChange={setOpen}
+                      >
+                        <span>{t(child.title)}</span>
+                      </MobileLink>
+                    ))}
+                  </div>
+                )}
+              </>
             ))}
           </div>
         </ScrollArea>

@@ -10,7 +10,12 @@
     "dark": "黑暗模式",
     "system": "系统模式",
     "docs": "文档",
-    "dashboard": "控制台"
+    "dashboard": "控制台",
+    "introduction": "介绍",
+    "installation": "安装",
+    "profile": "个人主页",
+    "personInformation": "个人信息",
+    "changePassword": "修改密码"
   },
   "login": {
     "emailPlaceholder": "请输入邮箱",
