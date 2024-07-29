@@ -10,10 +10,35 @@ export const siteConfig = {
     {
       href: "/docs",
       title: "docs",
+      children: [
+        {
+          href: "/docs",
+          title: "introduction",
+        },
+        {
+          href: "/docs/installation",
+          title: "installation",
+        },
+      ],
     },
     {
       href: "/dashboard",
       title: "dashboard",
+    },
+    {
+      href: "/profile",
+      title: "profile",
+      isMobileShow: true,
+      children: [
+        {
+          href: "/profile",
+          title: "personInformation",
+        },
+        {
+          href: "/profile/change-password",
+          title: "changePassword",
+        },
+      ],
     },
   ],
   docsNavList: [
