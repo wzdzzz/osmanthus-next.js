@@ -115,7 +115,35 @@
   "home": {
     "title": "ようこそ",
     "description": "Osmanthus は Next.js と Tailwind CSS を使用してウェブサイトを構築するためのテンプレートです",
-    "start": "スタート"
+    "start": "スタート",
+    "advantagesTitle": "あなたのワークフローを効率化",
+    "advantagesDescription": "Osmanthusは、Next.jsのプロジェクトを迅速に構築するのに役立ちます。",
+    "advantages": {
+      "rapid": {
+        "title": "迅速な開発",
+        "description": "Next.jsは高速なサーバーサイドレンダリングと静的サイト生成能力で知られており、開発プロセスをより迅速かつ効率的に行うことができます。"
+      },
+      "responsive": {
+        "title": "レスポンシブデザイン",
+        "description": "Tailwind CSSは多数のユーティリティクラスを提供しており、複雑なCSSコードを書くことなく、レスポンシブなレイアウトの設計をシンプルかつ迅速に行うことができます。"
+      },
+      "components": {
+        "title": "コンポーネントベースのアーキテクチャ",
+        "description": "Osmanthusテンプレートはコンポーネントベースの設計を使用しており、コードをよりモジュール化し、メンテナンスや拡張が容易に行えるようにしています。"
+      },
+      "customize": {
+        "title": "カスタマイズ可能なスタイル",
+        "description": "Tailwind CSSの強力な設定能力を利用することで、ブランドの要件を満たすためにウェブサイトのテーマやスタイルを簡単にカスタマイズすることができます。"
+      },
+      "seo": {
+        "title": "SEO最適化",
+        "description": "Next.jsはサーバーサイドレンダリングをサポートしており、ウェブサイトのSEOパフォーマンスを向上させ、検索エンジンでコンテンツがよりよく表示されるようにします。"
+      },
+      "performance": {
+        "title": "パフォーマンス最適化",
+        "description": "Next.jsはコード分割や遅延ローディングなどの機能を提供しており、Tailwind CSSの軽量フレームワークと組み合わせることで、ウェブサイトの読み込み速度とパフォーマンスを大幅に向上させることができます。"
+      }
+    }
   },
   "userMenu": {
     "login": "ログイン",

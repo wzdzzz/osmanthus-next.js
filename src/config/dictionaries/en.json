@@ -115,7 +115,35 @@
   "home": {
     "title": "Welcome",
     "description": "osmanthus-next.js is a template for building a website with Next.js and Tailwind CSS",
-    "start": "Start"
+    "start": "Start",
+    "advantagesTitle": "Streamline Your Workflow",
+    "advantagesDescription": "osmanthus can help you quickly build your next.js App",
+    "advantages": {
+      "rapid": {
+        "title": "Rapid Development",
+        "description": "Next.js is known for its fast server-side rendering and static site generation capabilities, making the development process faster and more efficient."
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Tailwind CSS offers a plethora of utility classes, making the design of responsive layouts simple and quick, without the need to write complex CSS code."
+      },
+      "components": {
+        "title": "Component-based Architecture",
+        "description": "The Osmanthus template uses a component-based design, making the code more modular, easy to maintain, and scalable."
+      },
+      "customize": {
+        "title": "Customizable Styles",
+        "description": "With the powerful configuration capabilities of Tailwind CSS, you can easily customize the website's theme and styles to meet brand requirements."
+      },
+      "seo": {
+        "title": "SEO Optimization",
+        "description": "Next.js supports server-side rendering, which helps improve the SEO performance of the website, ensuring that the content is better presented in search engines."
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "description": "Next.js offers features such as code splitting and lazy loading, combined with the lightweight framework of Tailwind CSS, can significantly enhance the website's loading speed and performance."
+      }
+    }
   },
   "userMenu": {
     "login": "Login",

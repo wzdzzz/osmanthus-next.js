@@ -115,7 +115,35 @@
   "home": {
     "title": "欢迎",
     "description": "osmanthus 是 Next.js 和 Tailwind CSS 构建网站的模板",
-    "start": "开始"
+    "start": "开始",
+    "advantagesTitle": "Streamline Your Workflow",
+    "advantagesDescription": "Osmanthus 可以帮助您快速构建Next.js项目",
+    "advantages": {
+      "rapid": {
+        "title": "快速开发",
+        "description": "Next.js 以其快速的服务器渲染和静态网站生成能力而闻名，使得开发过程更加迅速和高效。"
+      },
+      "responsive": {
+        "title": "响应式设计",
+        "description": "Tailwind CSS 提供了大量的实用工具类，使得设计响应式布局变得简单快捷，无需编写复杂的 CSS 代码。"
+      },
+      "components": {
+        "title": "组件化架构",
+        "description": "Osmanthus 模板采用组件化设计，使得代码更加模块化，易于维护和扩展。"
+      },
+      "customize": {
+        "title": "定制化样式",
+        "description": "利用 Tailwind CSS 的强大配置能力，可以轻松定制网站的主题和样式，满足品牌需求。"
+      },
+      "seo": {
+        "title": "SEO 优化",
+        "description": "Next.js 支持服务器端渲染，有助于提高网站的 SEO 性能，确保内容在搜索引擎中得到更好的展示。"
+      },
+      "performance": {
+        "title": "性能优化",
+        "description": "Next.js 提供了代码分割和懒加载等特性，结合 Tailwind CSS 的轻量级框架，可以显著提升网站加载速度和性能。"
+      }
+    }
   },
   "userMenu": {
     "login": "登录",
