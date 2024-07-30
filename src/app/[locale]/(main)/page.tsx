@@ -11,6 +11,15 @@ import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 
+export const metadata = {
+  title: "home page",
+  description: "osmanthus - home page",
+  openGraph: {
+    title: "welcome",
+    description: "osmanthus - home page",
+  },
+}
+
 const advantages = [
   {
     key: "rapid",

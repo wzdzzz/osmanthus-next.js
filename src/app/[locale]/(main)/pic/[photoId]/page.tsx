@@ -2,6 +2,18 @@ import Image from "next/image"
 
 import { getImages } from "@/lib/get-iamges"
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { photoId: string; locale: string }
+}) {
+  const { photoId } = params
+  return {
+    title: `Photo-${photoId}`,
+    description: `Photo-${photoId}`,
+  }
+}
+
 export default async function Page({
   params,
 }: {

@@ -47,7 +47,7 @@ export default function MobileNav() {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="space-y-3">
             {siteConfig.navList.map((navItem) => (
-              <>
+              <React.Fragment key={navItem.href}>
                 <MobileLink
                   key={navItem.href}
                   href={navItem.href}
@@ -71,7 +71,7 @@ export default function MobileNav() {
                     ))}
                   </div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </ScrollArea>

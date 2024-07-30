@@ -10,6 +10,7 @@ import { env } from "@/env.mjs"
 import { NextUIProvider } from "@nextui-org/react"
 import { getTranslations } from "next-intl/server"
 
+import { siteConfig } from "@/config/site"
 import AuthProvider from "@/components/auth-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -21,8 +22,31 @@ export async function generateMetadata() {
   const t = await getTranslations({ locale, namespace: "metadata" })
 
   return {
-    title: t("title"),
+    title: {
+      default: t("title"),
+      template: `%s | ${t("title")}`,
+    },
     description: t("description"),
+    metadataBase: new URL(siteConfig.url),
+    keywords: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Server Components",
+      "Radix UI",
+      "Next.js template",
+    ],
+    authors: [
+      {
+        name: "this",
+      },
+    ],
+    creator: "this",
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    minimumScale: 1,
+    userScalable: false,
   }
 }
 
