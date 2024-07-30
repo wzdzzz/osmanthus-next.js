@@ -12,7 +12,7 @@ import { getTranslations } from "next-intl/server"
 
 import { Button } from "@/components/ui/button"
 
-export const generateMetaData = async () => {
+export async function generateMetadata() {
   const t = await getTranslations("metadata")
 
   return {
