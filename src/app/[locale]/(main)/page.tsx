@@ -8,16 +8,22 @@ import {
   UploadIcon,
 } from "@radix-ui/react-icons"
 import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
 import { Button } from "@/components/ui/button"
 
-export const metadata = {
-  title: "home page",
-  description: "osmanthus - home page",
-  openGraph: {
-    title: "welcome",
-    description: "osmanthus - home page",
-  },
+export const generateMetaData = async () => {
+  const t = await getTranslations("metadata")
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      type: "article",
+      title: t("title"),
+      description: t("description"),
+    },
+  }
 }
 
 const advantages = [
