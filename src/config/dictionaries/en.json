@@ -153,6 +153,7 @@
     "logout": "Logout"
   },
   "docsSideNav": {
+    "docs": "Docs",
     "gettingStarted": "Getting Started",
     "introduction": "Introduction",
     "installation": "Installation"

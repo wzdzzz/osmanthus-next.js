@@ -153,6 +153,7 @@
     "logout": "退出"
   },
   "docsSideNav": {
+    "docs": "文档",
     "gettingStarted": "开始使用",
     "introduction": "介绍",
     "installation": "安装"

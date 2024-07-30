@@ -1,9 +1,18 @@
 import * as fs from "node:fs"
 import { join } from "node:path"
 import { useMDXComponents } from "@/mdx-components"
+import { getTranslations } from "next-intl/server"
 import { MDXRemote } from "next-mdx-remote/rsc"
 
 const defaultPath = join(process.cwd(), "src/doc")
+
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params
+  const t = await getTranslations("docsSideNav")
+  return {
+    title: t(slug?.join("/") || "introduction") || "docs",
+  }
+}
 
 const Page = async ({ params }) => {
   const { locale, slug } = params
