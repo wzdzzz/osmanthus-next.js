@@ -24,6 +24,7 @@ export async function generateMetadata() {
       title: t("title"),
       description: t("description"),
       url: env.NEXT_PUBLIC_APP_URL,
+      site_name: t("title"),
       images: [
         {
           url: "https://res.cloudinary.com/daqpmzvx7/image/upload/v1720661806/samples/animals/reindeer.jpg",
