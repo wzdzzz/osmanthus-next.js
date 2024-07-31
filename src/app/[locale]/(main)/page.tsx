@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { env } from "@/env.mjs"
 import {
   CheckIcon,
   ClipboardIcon,
@@ -22,6 +23,14 @@ export async function generateMetadata() {
       type: "article",
       title: t("title"),
       description: t("description"),
+      url: env.NEXT_PUBLIC_APP_URL,
+      images: [
+        {
+          url: "https://asset.cloudinary.com/daqpmzvx7/8f9f59bc37036251ac6341799b57d5ae",
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   }
 }

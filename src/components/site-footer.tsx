@@ -1,8 +1,54 @@
 "use client"
 
-import { TwitterIcon, TwitterShareButton } from "react-share"
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  RedditIcon,
+  RedditShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share"
 
 import { siteConfig } from "@/config/site"
+
+const shareList = [
+  {
+    name: "Twitter",
+    icon: TwitterIcon,
+    share: TwitterShareButton,
+  },
+  {
+    name: "Facebook",
+    icon: FacebookIcon,
+    share: FacebookShareButton,
+  },
+  {
+    name: "Whatsapp",
+    icon: WhatsappIcon,
+    share: WhatsappShareButton,
+  },
+  {
+    name: "Linkedin",
+    icon: LinkedinIcon,
+    share: LinkedinShareButton,
+  },
+  {
+    name: "Telegram",
+    icon: TelegramIcon,
+    share: TelegramShareButton,
+  },
+  {
+    name: "Reddit",
+    icon: RedditIcon,
+    share: RedditShareButton,
+  },
+]
 
 export default function SiteFooter() {
   const shareUrl = window.location.href
@@ -17,13 +63,15 @@ export default function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            GItHub11
+            GItHub
           </a>
         </p>
-        <div>
-          <TwitterShareButton url={shareUrl} title="osmanthus" via="osmanthus">
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
+        <div className="flex gap-2">
+          {shareList.map((item) => (
+            <item.share url={shareUrl} title="osmanthus" key={item.name}>
+              <item.icon key={item.name} size={32} round={true} />
+            </item.share>
+          ))}
         </div>
       </div>
     </footer>
