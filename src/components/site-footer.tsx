@@ -1,5 +1,6 @@
 "use client"
 
+import { env } from "@/env.mjs"
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -51,7 +52,7 @@ const shareList = [
 ]
 
 export default function SiteFooter() {
-  const shareUrl = "https://geekai.asia" || window.location.href
+  const shareUrl = "https://geekai.asia" || env.NEXT_PUBLIC_APP_URL
   return (
     <footer className="md:pyb-6 py-6 md:px-8">
       <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
