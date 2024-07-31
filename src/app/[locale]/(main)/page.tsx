@@ -26,7 +26,7 @@ export async function generateMetadata() {
       url: env.NEXT_PUBLIC_APP_URL,
       images: [
         {
-          url: "https://asset.cloudinary.com/daqpmzvx7/8f9f59bc37036251ac6341799b57d5ae",
+          url: "https://res.cloudinary.com/daqpmzvx7/image/upload/v1720661806/samples/animals/reindeer.jpg",
           width: 1200,
           height: 630,
         },
