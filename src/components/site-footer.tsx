@@ -63,7 +63,7 @@ export default function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            GItHub11
+            GItHub
           </a>
         </p>
         <div className="flex gap-2">
