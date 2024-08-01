@@ -1,6 +1,5 @@
 import { getImages } from "@/lib/get-iamges"
-
-import Photo from "../../components/photo"
+import { PhotoDialog } from "@/app/[locale]/(main)/pic/@modal/(.)photo/[id]/modal"
 
 export async function generateMetadata({
   params,
@@ -22,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <Photo photoUrl={currentPhotoUrl} />
+      <PhotoDialog photoUrl={currentPhotoUrl} isRedirect={true} />
     </div>
   )
 }
