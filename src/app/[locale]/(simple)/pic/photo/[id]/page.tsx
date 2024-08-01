@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <PhotoDialog photoUrl={currentPhotoUrl} />
+      <PhotoDialog photoUrl={currentPhotoUrl} isRedirect={true} />
     </div>
   )
 }
