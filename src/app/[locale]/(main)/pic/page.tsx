@@ -7,9 +7,7 @@ export default async function Page() {
 
   return (
     <div className="container">
-      <PhotoList
-        images={[...images, ...images, ...images, ...images, ...images]}
-      />
+      <PhotoList images={images} />
     </div>
   )
 }

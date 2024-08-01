@@ -77,11 +77,11 @@ export default function Page() {
             <p className="mb-8 text-lg text-gray-200 text-muted-foreground md:text-xl">
               {t("description")}
             </p>
-            <Button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-10 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-              <Link href={"/docs"} className="" prefetch={false}>
+            <Link href={"/docs"} className="" prefetch={false}>
+              <Button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-10 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 {t("start")}
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

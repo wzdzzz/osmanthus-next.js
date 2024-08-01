@@ -5,7 +5,7 @@ import cloudinary from "./cloudinary"
 function generateThumbnailUrl(url: string) {
   return (
     url.split("/image/upload/")[0] +
-    "/image/upload/c_scale,w_200/" +
+    "/image/upload/c_scale,w_400/" +
     url.split("/image/upload/")[1]
   )
 }
@@ -13,7 +13,7 @@ function generateThumbnailUrl(url: string) {
 export async function getImages() {
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
-    .max_results(10)
+    .max_results(30)
     .execute()
   let reducedResults: ImageProps[] = []
 
