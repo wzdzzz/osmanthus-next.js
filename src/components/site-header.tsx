@@ -45,12 +45,16 @@ export default async function SiteHeader({
                 <AvatarDropdownMenu />
               ) : (
                 <>
-                  <Button size="sm" color="primary" variant="ghost">
-                    <Link href={"/login"}>{t("login")}</Link>
-                  </Button>
-                  <Button size="sm" color="primary">
-                    <Link href={"/register"}>{t("signUp")}</Link>
-                  </Button>
+                  <Link href={"/login"}>
+                    <Button size="sm" color="primary" variant="ghost">
+                      {t("login")}
+                    </Button>
+                  </Link>
+                  <Link href={"/register"}>
+                    <Button size="sm" color="primary">
+                      {t("signUp")}
+                    </Button>
+                  </Link>
                 </>
               )}
             </>

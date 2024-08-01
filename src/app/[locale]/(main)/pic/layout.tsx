@@ -1,3 +1,8 @@
-export default function PicLayout({ children }) {
-  return <>{children}</>
+export default function PicLayout({ children, modal }) {
+  return (
+    <>
+      {children}
+      {modal}
+    </>
+  )
 }

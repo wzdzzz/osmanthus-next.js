@@ -26,6 +26,10 @@ export const siteConfig = {
       title: "dashboard",
     },
     {
+      href: "/pic",
+      title: "pic",
+    },
+    {
       href: "/profile",
       title: "profile",
       isMobileShow: true,
