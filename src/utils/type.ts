@@ -5,4 +5,6 @@ export interface ImageProps {
   public_id: string
   format: string
   blurDataUrl?: string
+  thumbnail_url: string
+  url: string
 }
