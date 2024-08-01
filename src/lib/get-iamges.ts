@@ -2,10 +2,10 @@ import { ImageProps } from "@/utils/type"
 
 import cloudinary from "./cloudinary"
 
-function generateThumbnailUrl(url: string) {
+function generateThumbnailUrl(url: string, width = 400) {
   return (
     url.split("/image/upload/")[0] +
-    "/image/upload/c_scale,w_400/" +
+    `/image/upload/c_scale,w_${width}/` +
     url.split("/image/upload/")[1]
   )
 }
@@ -25,7 +25,7 @@ export async function getImages() {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
-      url: result.secure_url,
+      url: generateThumbnailUrl(result.secure_url, 600),
       // 缩略图
       thumbnail_url: generateThumbnailUrl(result.secure_url),
     })
