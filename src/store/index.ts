@@ -1,5 +1,5 @@
 import { ImageProps } from "@/utils/type"
-import create from "zustand"
+import { create } from "zustand"
 
 type Store = {
   count: number
@@ -7,6 +7,8 @@ type Store = {
   subCount: () => void
   images: ImageProps[]
   setImages: (images: ImageProps[]) => void
+  themeColor: string
+  setThemeColor: (themeColor: string) => void
 }
 export const useStore = create<Store>((set) => ({
   count: 1,
@@ -14,4 +16,6 @@ export const useStore = create<Store>((set) => ({
   subCount: () => set((state) => ({ count: state.count - 1 })),
   images: [],
   setImages: (images) => set(() => ({ images })),
+  themeColor: "zinc",
+  setThemeColor: (themeColor) => set(() => ({ themeColor })),
 }))

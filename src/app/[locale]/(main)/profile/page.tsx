@@ -11,15 +11,15 @@ export default async function Page() {
   return (
     <div className="flex flex-col gap-10">
       <div className="flex gap-4">
-        <div className="w-20 text-right text-gray-400">{t("username")}:</div>
+        <div className="w-16 text-right text-gray-400">{t("username")}:</div>
         <div className="w-10">{session?.user?.name || ""}</div>
       </div>
       <div className="flex gap-4">
-        <div className="w-20 text-right text-gray-400">{t("email")}:</div>
+        <div className="w-16 text-right text-gray-400">{t("email")}:</div>
         <div className="">{session?.user?.email || ""}</div>
       </div>
       <div className="flex gap-4">
-        <div className="w-20 text-right text-gray-400">{t("avatar")}:</div>
+        <div className="w-16 text-right text-gray-400">{t("avatar")}:</div>
         <div className="">
           <Avatar size="sm">
             <AvatarImage

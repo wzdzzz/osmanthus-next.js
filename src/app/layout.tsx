@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google"
 import { Toaster } from "@/components/ui/toaster"
 
 import "./globals.css"
+import "public/registry/themes.css"
 
 import { headers } from "next/headers"
 import { env } from "@/env.mjs"
@@ -13,6 +14,8 @@ import { getTranslations } from "next-intl/server"
 import { siteConfig } from "@/config/site"
 import AuthProvider from "@/components/auth-provider"
 import { ThemeProvider } from "@/components/theme-provider"
+import ThemeSwitcher from "@/components/theme-switcher"
+import { ThemeWrapper } from "@/components/theme-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -60,7 +63,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <AuthProvider>
-            <NextUIProvider>{children}</NextUIProvider>
+            <NextUIProvider>
+              <ThemeWrapper>{children}</ThemeWrapper>
+              <ThemeSwitcher />
+            </NextUIProvider>
             <Toaster />
           </AuthProvider>
         </ThemeProvider>
