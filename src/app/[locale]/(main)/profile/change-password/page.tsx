@@ -75,7 +75,7 @@ export default function ChangePassword() {
   }
 
   return (
-    <div>
+    <div className={"max-w-[500px]"}>
       <Form {...form}>
         <div>
           <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -132,7 +132,12 @@ export default function ChangePassword() {
               />
             </div>
             <div className="mt-4">
-              <Button size="lg" type="submit" disabled={loading}>
+              <Button
+                size="lg"
+                type="submit"
+                className={"w-full md:w-auto"}
+                disabled={loading}
+              >
                 {loading && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}
