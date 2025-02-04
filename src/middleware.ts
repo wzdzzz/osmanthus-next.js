@@ -12,6 +12,7 @@ const publicRoute = [
   "/(\\w{2}/)?terms(.*)",
   "/(\\w{2}/)?privacy(.*)",
   "/(\\w{2}/)?docs(.*)",
+  "/(\\w{2}/)?pic(.*)",
   "/(\\w{2}/)?blog(.*)",
   "/(\\w{2}/)?pricing(.*)",
   "/(\\w{2}/)?unauthorized(.*)",

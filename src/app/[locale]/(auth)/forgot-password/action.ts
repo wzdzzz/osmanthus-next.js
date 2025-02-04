@@ -38,7 +38,6 @@ export const sendPasswordResetEmail = async ({
     })
 
     const baseUrl = `${env.NEXT_PUBLIC_APP_URL}/forgot-password/reset-password?token=${token}`
-    console.log(baseUrl, "baseUrl")
     const emailHtml = render(
       await Email({ baseUrl, namespace: "forgotPasswordEmail" })
     )

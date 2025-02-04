@@ -23,7 +23,7 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <div className="hidden py-4 md:block">
+    <div className="hidden w-[300px] py-4 md:block md:border-r">
       <div className="p-2">
         <h3 className="mb-4 px-3 font-bold tracking-tight">{t("title")}</h3>
         <div className="space-y-4">

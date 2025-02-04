@@ -6,10 +6,10 @@ export default function ProfileLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="grid h-[100%] grid-cols-5">
+    <div className="flex h-[100%]">
       <Sidebar />
 
-      <div className="col-span-5 flex h-[calc(100vh-200px)] flex-col gap-10 p-10 md:col-span-3 md:border-l">
+      <div className="flex h-[calc(100vh-200px)] flex-1 flex-col gap-10 p-10">
         {children}
       </div>
     </div>

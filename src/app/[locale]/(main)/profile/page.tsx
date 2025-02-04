@@ -9,7 +9,7 @@ export default async function Page() {
   const t = await getTranslations("profile")
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="mt-5 flex flex-col gap-10">
       <div className="flex gap-4">
         <div className="w-16 text-right text-gray-400">{t("username")}:</div>
         <div className="w-10">{session?.user?.name || ""}</div>
