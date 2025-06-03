@@ -17,12 +17,12 @@
     "db-push": "prisma db push"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write"
     ]
   },
   "dependencies": {
+    "@auth/core": "^0.39.1",
     "@auth/prisma-adapter": "^2.2.0",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@hookform/resolvers": "^3.4.2",
@@ -74,7 +74,7 @@
     "input-otp": "^1.2.4",
     "lucide": "^0.424.0",
     "lucide-react": "^0.453.0",
-    "next": "^14.2.4",
+    "next": "^15.2.4",
     "next-auth": "^5.0.0-beta.4",
     "next-intl": "^3.15.0",
     "next-mdx-remote": "^5.0.0",

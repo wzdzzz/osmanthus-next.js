@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
 import "public/registry/themes.css"
 
-import { headers } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { env } from "@/env.mjs"
 import { NextUIProvider } from "@nextui-org/react"
 import { getTranslations } from "next-intl/server"
@@ -20,7 +20,7 @@ import { ThemeWrapper } from "@/components/theme-wrapper"
 const inter = Inter({ subsets: ["latin"] })
 
 export async function generateMetadata() {
-  const header = headers()
+  const header = await headers()
   const locale = header.get("x-next-intl-locale")
   const t = await getTranslations({ locale, namespace: "metadata" })
 
@@ -45,21 +45,26 @@ export async function generateMetadata() {
       },
     ],
     creator: "this",
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    minimumScale: 1,
-    userScalable: false,
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+      maximumScale: 1,
+      minimumScale: 1,
+      userScalable: false,
+    },
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  let locale = cookieStore.get("NEXT_LOCALE")?.value
+  console.log(locale)
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang={locale}>
       <body className={inter.className}>
         <ThemeProvider>
           <AuthProvider>

@@ -32,7 +32,7 @@ cd osmanthus
 2. **安装依赖**:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 3. **设置环境变量**:
@@ -44,13 +44,13 @@ cp .env.example .env.local
 4. **生成必要的文件**:
 
 ```bash
-yarn run generate
+pnpm run generate
 ```
 
 5. **运行开发服务器**:
 
 ```bash
-yarn run dev
+pnpm run dev
 ```
 
 您的项目现在应该运行在 http://localhost:3000。
