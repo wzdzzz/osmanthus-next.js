@@ -2,7 +2,7 @@ import * as fs from "node:fs"
 import { join } from "node:path"
 import { useMDXComponents } from "@/mdx-components"
 import { getTranslations } from "next-intl/server"
-import { MDXRemote } from "next-mdx-remote/rsc"
+import { MDXRemote } from "next-mdx-remote-client/rsc"
 
 const defaultPath = join(process.cwd(), "src/doc")
 
