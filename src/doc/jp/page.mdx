@@ -25,52 +25,58 @@
 ## ディレクトリー構造
 ```ディレクトリー構造
 
+  ├── .env
+  ├── .env.example
+  ├── .env.local
+  ├── .eslintignore
+  ├── .eslintrc.cjs
+  ├── .gitignore
+  ├── .husky
+  ├── .next
+  ├── .prettierignore
   ├── LICENSE
   ├── README.md
   ├── README_zh.md
+  ├── analyze
+  │  └── nodejs.html
   ├── components.json
+  ├── messages
+  │  ├── en.json
+  │  ├── jp.json
+  │  └── zh.json
   ├── next-env.d.ts
   ├── next.config.mjs
   ├── package-lock.json
   ├── package.json
+  ├── pnpm-lock.yaml
   ├── postcss.config.mjs
   ├── prettier.config.cjs
   ├── prisma
-  │    ├── migrations
-  │    └── schema.prisma
+  │  ├── migrations
+  │  └── schema.prisma
   ├── public
-  │    ├── next.svg
-  │    └── vercel.svg
+  │  ├── 1.png
+  │  ├── 2.png
+  │  ├── 3.png
+  │  ├── next.svg
+  │  ├── registry
+  │  └── vercel.svg
   ├── src
-  │    ├── app
-  │    │    ├── [locale]
-  │    │    ├── api
-  │    │    ├── favicon.ico
-  │    │    ├── globals.css
-  │    │    └── layout.tsx
-  │    ├── components
-  │    │    └── ui
-  │    ├── config
-  │    │    ├── auth.config.ts
-  │    │    ├── dictionaries
-  │    │    └── site.ts
-  │    ├── env.mjs
-  │    ├── i18n.ts
-  │    ├── lib
-  │    │    ├── email.ts
-  │    │    ├── i18n-navigation.ts
-  │    │    ├── primsa.ts
-  │    │    └── utils.ts
-  │    ├── mdx-components.tsx
-  │    ├── middleware.ts
-  │    ├── providers
-  │    │    └── gitee.ts
-  │    ├── store
-  │    │    └── index.ts
-  │    └── templates
-  │        └── email.tsx
+  │  ├── app
+  │  ├── components
+  │  ├── config
+  │  ├── doc
+  │  ├── env.mjs
+  │  ├── hooks
+  │  ├── i18n
+  │  ├── lib
+  │  ├── mdx-components.tsx
+  │  ├── middleware.ts
+  │  ├── providers
+  │  ├── store
+  │  ├── templates
+  │  └── utils
   ├── tailwind.config.ts
-  ├── tsconfig.json
-  └── yarn.lock //
+  └── tsconfig.json
 
 ```

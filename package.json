@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build:test": "cross-env NODE_ENV=test  ANALYZE=true next build",
+    "build:test": "cross-env NODE_ENV=test ANALYZE=true next build",
     "build": "yarn run generate && cross-env ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
@@ -17,18 +17,17 @@
     "db-push": "prisma db push"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write"
     ]
   },
   "dependencies": {
+    "@auth/core": "^0.39.1",
     "@auth/prisma-adapter": "^2.2.0",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@hookform/resolvers": "^3.4.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@next/bundle-analyzer": "^14.2.5",
     "@next/mdx": "^14.2.4",
     "@next/third-parties": "^14.2.4",
     "@nextui-org/react": "^2.4.1",
@@ -63,7 +62,7 @@
     "@radix-ui/react-tooltip": "^1.1.3",
     "@react-email/components": "^0.0.19",
     "@t3-oss/env-nextjs": "^0.10.1",
-    "@types/mdx": "^2.0.13",
+    "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.2.0",
     "clsx": "^2.1.1",
@@ -74,10 +73,10 @@
     "input-otp": "^1.2.4",
     "lucide": "^0.424.0",
     "lucide-react": "^0.453.0",
-    "next": "^14.2.4",
+    "next": "^15.2.4",
     "next-auth": "^5.0.0-beta.4",
     "next-intl": "^3.15.0",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote-client": "^2.1.2",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.13",
     "react": "^18.3.1",
@@ -88,7 +87,6 @@
     "react-resizable-panels": "^2.0.19",
     "react-share": "^5.1.0",
     "recharts": "^2.13.0",
-    "sass": "^1.77.8",
     "sonner": "^1.5.0",
     "spawn-sync": "^2.0.0",
     "tailwind-merge": "^2.3.0",
@@ -100,7 +98,9 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@next/bundle-analyzer": "^14.2.5",
     "@types/bcrypt": "^5.0.2",
+    "@types/mdx": "^2.0.13",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.15",
@@ -109,7 +109,6 @@
     "@types/uuid": "^9.0.8",
     "add": "^2.0.6",
     "autoprefixer": "^10.4.19",
-    "bcrypt": "^5.1.1",
     "cross-env": "^7.0.3",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
@@ -121,6 +120,7 @@
     "prettier-eslint": "^16.3.0",
     "prettier-plugin-tailwindcss": "^0.6.1",
     "prisma": "^5.14.0",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

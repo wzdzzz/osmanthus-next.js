@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { locales } from "@/i18n"
+import { routing } from "@/i18n/routing"
 import NextAuth from "next-auth"
 import createMiddleware from "next-intl/middleware"
 
@@ -30,11 +30,7 @@ function isPublicPage(request: NextRequest): boolean {
   return publicRoute.some((route) => new RegExp(route).test(pathname))
 }
 
-const intlMiddleware = createMiddleware({
-  locales,
-  defaultLocale: "en",
-  localePrefix: "never" || "always",
-})
+const intlMiddleware = createMiddleware(routing)
 
 const authPages = [
   "/login",
@@ -47,7 +43,7 @@ const authPages = [
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(
-    `^(/(${locales.join("|")}))?(${pages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`,
+    `^(/(${routing.locales.join("|")}))?(${pages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`,
     "i"
   ).test(pathName)
 }
@@ -75,7 +71,6 @@ const authMiddleware = auth((req) => {
   const isLoggedIn = !!req.auth?.user
   // 不需要登录的页面
   const whiteList = ["/", "/list"]
-  console.log("pathname", pathname)
 
   if (!isLoggedIn) {
     if (!isAuthPage && !whiteList.includes(pathname)) {

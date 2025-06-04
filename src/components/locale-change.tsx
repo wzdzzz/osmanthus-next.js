@@ -3,10 +3,11 @@
 import * as React from "react"
 import { useTransition } from "react"
 import { useSearchParams } from "next/navigation"
-import { locales, localesMap } from "@/i18n"
+import { usePathname, useRouter } from "@/i18n/navigation"
+import { localesMap } from "@/i18n/request"
+import { routing } from "@/i18n/routing"
 import { useLocale } from "next-intl"
 
-import { usePathname, useRouter } from "@/lib/i18n-navigation"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -39,7 +40,7 @@ export function LocaleChange() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div>
-          {locales.map((key) => {
+          {routing.locales.map((key) => {
             return (
               <DropdownMenuItem key={key} onClick={() => onClick(key)}>
                 <span>{localesMap[key]}</span>
