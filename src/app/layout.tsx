@@ -18,6 +18,14 @@ import ThemeSwitcher from "@/components/theme-switcher"
 import { ThemeWrapper } from "@/components/theme-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
+// 静态导出 viewport 配置
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  minimumScale: 1,
+  userScalable: false,
+}
 
 export async function generateMetadata() {
   const header = await headers()
@@ -45,13 +53,6 @@ export async function generateMetadata() {
       },
     ],
     creator: "this",
-    viewport: {
-      width: "device-width",
-      initialScale: 1,
-      maximumScale: 1,
-      minimumScale: 1,
-      userScalable: false,
-    },
   }
 }
 
@@ -62,7 +63,6 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies()
   let locale = cookieStore.get("NEXT_LOCALE")?.value
-  console.log(locale)
   return (
     <html suppressHydrationWarning lang={locale}>
       <body className={inter.className}>

@@ -7,7 +7,7 @@ import { MDXRemote } from "next-mdx-remote-client/rsc"
 const defaultPath = join(process.cwd(), "src/doc")
 
 export const generateMetadata = async ({ params }) => {
-  const { slug } = params
+  const { slug } = await params
   const t = await getTranslations("docsSideNav")
   return {
     title: t(slug?.join("/") || "introduction") || "docs",
@@ -15,7 +15,7 @@ export const generateMetadata = async ({ params }) => {
 }
 
 const Page = async ({ params }) => {
-  const { locale, slug } = params
+  const { locale, slug } = await params
   const realSlug = slug?.join("/") || ""
   let postDir = join(defaultPath, locale, realSlug, "page.mdx")
   if (!fs.existsSync(postDir)) {
